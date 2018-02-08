@@ -1,0 +1,268 @@
+
+/* Begin with our foundation CSS */
+
+/*
+ Based on Fundation
+ ©2016 Jayden Seric
+ http://goo.gl/AGwtzd
+*/
+
+@viewport
+{
+  zoom: 1.0;
+  user-zoom: zoom;
+  orientation: auto;
+  width: extend-to-zoom;
+}
+
+html
+{
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+body
+{
+  margin: 0;
+  font-size: 1em;
+}
+
+h1, h2, h3, h4
+{
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+p, ol, ul
+{
+  margin: 0;
+  padding: 0;
+}
+
+li
+{
+  display: block;
+}
+
+a
+{
+  color: inherit;
+  transition: .3s;
+  -moz-transition: .3s;
+  text-decoration: none;
+  -webkit-transition: .3s;
+}
+
+img
+{
+  border: 0;
+  height: auto;
+  max-width: 100%;
+}
+
+body
+{
+  color: #000;
+  margin: 2% 0;
+  font-size: 1em;
+  font-family: Arial;
+  background-color: #ddd;
+}
+
+a
+{
+  color: #1e0fbe;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover
+{
+  color: crimson;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+small
+{
+  font-size: 0.8em;
+}
+
+strong
+{
+  font-weight: bold;
+}
+
+#pageWrapper
+{
+  width: 45%;
+  color: #000;
+  padding: 1em;
+  margin: 0 auto;
+  border-radius: 0.5em;
+  background-color: #fff;
+}
+
+#pageWrapper header
+{
+  color: #fff;
+  padding: 2em 0;
+  line-height: 3em;
+  text-align: center;
+  font-family: Verdana;
+  border-radius: 0.3em;
+  background-color: #111;
+}
+
+#pageWrapper header a
+{
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+#pageWrapper header h1
+{
+  font-size: 2.8em;
+  font-weight: bold;
+}
+
+#pageWrapper header h2
+{
+  font-size: 1.5em;
+}
+
+#pageWrapper section h1
+{
+  font-size: 1.3em;
+  margin: 1em 25% 0 0;
+}
+
+#pageWrapper p
+{
+  line-height: 1.5em;
+  margin: 1em 25% 0 0;
+}
+
+#pageWrapper #languageForm
+{
+  text-align: right;
+  margin: -1.2em 0.1em 0 0;
+}
+
+#pageWrapper #languageForm select
+{
+  border: 1px solid #999;
+}
+
+#pageWrapper footer
+{
+  color: #fff;
+  margin: 2em 0 0 0;
+  padding: 2.5em 1em;
+  line-height: 1.5em;
+  text-align: center;
+  border-radius: 0.3em;
+  background-color: #111;
+}
+
+#pageWrapper footer a
+{
+  color: #fff;
+  background-color: transparent;
+}
+
+#pageWrapper footer #poweredNote
+{
+
+}
+
+#pageWrapper footer .hummVersion
+{
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+#pageWrapper footer #copyrightNote
+{
+  font-size: 0.7em;
+}
+
+
+@media all and (max-width:1000px)
+{
+  #pageWrapper
+  {
+    width: 60%;
+  }
+}
+
+@media all and (max-width:700px)
+{
+  #pageWrapper
+  {
+    width: 70%;
+  }
+}
+
+@media all and (max-width:600px)
+{
+  #pageWrapper
+  {
+    width: 85%;
+    padding: 0.5em;
+  }
+
+  #pageWrapper p
+  {
+    margin: 1em 5% 0 0;
+  }
+}
+
+@media all and (max-width:450px)
+{
+  body
+  {
+    margin: 0.5em 0;
+    text-align: center;
+  }
+
+  #pageWrapper header
+  {
+    font-size: 0.7em;
+    padding: 2em 2em 3em 2em;
+  }
+
+  #pageWrapper header h2
+  {
+    display: none;
+  }
+
+  #pageWrapper section h1
+  {
+    color: #fff;
+    padding: 0.5em;
+    margin: -0.5em 0 0 0;
+    background-color: #999;
+    border-radius: 0 0 0.3em 0.3em;
+  }
+
+  #pageWrapper p
+  {
+    margin: 1em 5% 0 0;
+  }
+
+  #pageWrapper #languageForm
+  {
+    margin: 1em 0 0 0;
+    text-align: center;
+  }
+
+  #pageWrapper footer #poweredNote
+  {
+    display: none;
+  }
+}

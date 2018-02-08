@@ -1,0 +1,274 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Humm PHP System\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-08 14:47+0100\n"
+"PO-Revision-Date: 2014-06-08 14:48+0100\n"
+"Last-Translator: \n"
+"Language-Team: David Esperalta <info@davidesperalta.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: t;e;n;ne\n"
+"X-Poedit-Basepath: ../../\n"
+"Plural-Forms: nplurals=2; plural=n !=1;\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Classes/LocalizationMap.php:115
+msgid "am"
+msgstr "am"
+
+#: Classes/LocalizationMap.php:116
+msgid "pm"
+msgstr "pm"
+
+#: Classes/LocalizationMap.php:117
+msgid "AM"
+msgstr "AM"
+
+#: Classes/LocalizationMap.php:118
+msgid "PM"
+msgstr "PM"
+
+#: Classes/LocalizationMap.php:130
+msgid "Monday"
+msgstr "Lunes"
+
+#: Classes/LocalizationMap.php:131
+msgid "Tuesday"
+msgstr "Martes"
+
+#: Classes/LocalizationMap.php:132
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: Classes/LocalizationMap.php:133
+msgid "Thursday"
+msgstr "Jueves"
+
+#: Classes/LocalizationMap.php:134
+msgid "Friday"
+msgstr "Viernes"
+
+#: Classes/LocalizationMap.php:135
+msgid "Saturday"
+msgstr "Sábado"
+
+#: Classes/LocalizationMap.php:136
+msgid "Sunday"
+msgstr "Domingo"
+
+#: Classes/LocalizationMap.php:148
+msgid "Mon"
+msgstr "Lun"
+
+#: Classes/LocalizationMap.php:149
+msgid "Tue"
+msgstr "Mar"
+
+#: Classes/LocalizationMap.php:150
+msgid "Wed"
+msgstr "Mié"
+
+#: Classes/LocalizationMap.php:151
+msgid "Thu"
+msgstr "Jue"
+
+#: Classes/LocalizationMap.php:152
+msgid "Fri"
+msgstr "Vie"
+
+#: Classes/LocalizationMap.php:153
+msgid "Sat"
+msgstr "Sáb"
+
+#: Classes/LocalizationMap.php:154
+msgid "Sun"
+msgstr "Dom"
+
+#: Classes/LocalizationMap.php:166
+msgid "M_Monday_initial"
+msgstr "L"
+
+#: Classes/LocalizationMap.php:167
+msgid "T_Tuesday_initial"
+msgstr "M"
+
+#: Classes/LocalizationMap.php:168
+msgid "W_Wednesday_initial"
+msgstr "M"
+
+#: Classes/LocalizationMap.php:169
+msgid "T_Thursday_initial"
+msgstr "J"
+
+#: Classes/LocalizationMap.php:170
+msgid "F_Friday_initial"
+msgstr "V"
+
+#: Classes/LocalizationMap.php:171
+msgid "S_Saturday_initial"
+msgstr "S"
+
+#: Classes/LocalizationMap.php:172
+msgid "S_Sunday_initial"
+msgstr "D"
+
+#: Classes/LocalizationMap.php:193
+msgid "January"
+msgstr "Enero"
+
+#: Classes/LocalizationMap.php:194
+msgid "February"
+msgstr "Febrero"
+
+#: Classes/LocalizationMap.php:195
+msgid "March"
+msgstr "Marzo"
+
+#: Classes/LocalizationMap.php:196
+msgid "April"
+msgstr "Abril"
+
+#: Classes/LocalizationMap.php:197 Classes/LocalizationMap.php:220
+msgid "May"
+msgstr "Mayo"
+
+#: Classes/LocalizationMap.php:198
+msgid "June"
+msgstr "Junio"
+
+#: Classes/LocalizationMap.php:199
+msgid "July"
+msgstr "Julio"
+
+#: Classes/LocalizationMap.php:200
+msgid "August"
+msgstr "Agosto"
+
+#: Classes/LocalizationMap.php:201
+msgid "September"
+msgstr "Septiembre"
+
+#: Classes/LocalizationMap.php:202
+msgid "October"
+msgstr "Octubre"
+
+#: Classes/LocalizationMap.php:203
+msgid "November"
+msgstr "Noviembre"
+
+#: Classes/LocalizationMap.php:204
+msgid "December"
+msgstr "Diciembre"
+
+#: Classes/LocalizationMap.php:216
+msgid "Jan"
+msgstr "Ene"
+
+#: Classes/LocalizationMap.php:217
+msgid "Feb"
+msgstr "Feb"
+
+#: Classes/LocalizationMap.php:218
+msgid "Mar"
+msgstr "Mar"
+
+#: Classes/LocalizationMap.php:219
+msgid "Apr"
+msgstr "Abr"
+
+#: Classes/LocalizationMap.php:221
+msgid "Jun"
+msgstr "Jun"
+
+#: Classes/LocalizationMap.php:222
+msgid "Jul"
+msgstr "Jul"
+
+#: Classes/LocalizationMap.php:223
+msgid "Aug"
+msgstr "Ago"
+
+#: Classes/LocalizationMap.php:224
+msgid "Sep"
+msgstr "Sep"
+
+#: Classes/LocalizationMap.php:225
+msgid "Oct"
+msgstr "Oct"
+
+#: Classes/LocalizationMap.php:226
+msgid "Nov"
+msgstr "Nov"
+
+#: Classes/LocalizationMap.php:227
+msgid "Dec"
+msgstr "Dic"
+
+#: Classes/Requeriments.php:59 Classes/Requeriments.php:63
+msgid "Requeriment error..."
+msgstr "Error de requisitos."
+
+#: Views/SystemError.php:5 Views/SystemHome.php:5
+msgid "Humm PHP - Error"
+msgstr "Humm PHP - Error"
+
+#: Views/SystemError.php:10 Views/SystemHome.php:9
+msgid "Humm PHP error"
+msgstr "Error en Humm PHP"
+
+#: Views/SystemError.php:19
+msgid "Error:"
+msgstr "Error:"
+
+#: Views/SystemError.php:23
+msgid "Message:"
+msgstr "Mensaje:"
+
+#: Views/SystemError.php:27
+msgid "File path.:"
+msgstr "Ruta:"
+
+#: Views/SystemError.php:31
+msgid "Line num.:"
+msgstr "Núm. línea:"
+
+#: Views/SystemError.php:42
+msgid ""
+"Sorry, an error occur, but Humm PHP is configured to hide more information."
+msgstr ""
+"Lo siento, ocurrió un error, pero, Humm PHP está configurado para ocultar "
+"más información."
+
+#: Views/SystemHome.php:12
+msgid ""
+"Humm PHP is working but you need to provide at least one Home site view. If "
+"you need more information, please, visit the Humm PHP website at:"
+msgstr ""
+"Humm PHP está funcionando, pero, necesita proporcionar al menos un avista "
+"Home en su sitio. Si necesita más información, por favor, visite el sitio "
+"web de Humm PHP en:"
+
+#: Views/SystemHome.php:15 Views/Helpers/SystemFooter.php:7
+#: Views/Helpers/SystemFooter.php:12
+msgid "Visit the Humm PHP website"
+msgstr "Visite el sitio web de Humm PHP"
+
+#: Views/Helpers/SystemFooter.php:7
+msgid "Powered by Humm PHP"
+msgstr "Basado en Humm PHP"
+
+#: Views/Helpers/SystemPosHeader.php:7 Views/Helpers/SystemPosHeader.php:8
+msgid "Click to refresh this page"
+msgstr "Clic para refrescar esta página"
+
+#: Views/Helpers/SystemPosHeader.php:8
+msgid "Lightweight framework"
+msgstr "Framework ligero"
+
+#~ msgid "Sorry, an error occur."
+#~ msgstr "Lo siento, ocurrió un error."

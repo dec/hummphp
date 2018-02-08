@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Humm PHP Sample\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-28 05:10+0100\n"
+"PO-Revision-Date: 2014-05-28 05:10+0100\n"
+"Last-Translator: \n"
+"Language-Team: David Esperalta <info@davidesperalta.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: t;e;n;ne\n"
+"X-Poedit-Basepath: ../../\n"
+"Plural-Forms: nplurals=2; plural=n !=1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Views/Home.php:5
+msgid "Humm PHP is ready!"
+msgstr "¡Humm PHP está listo!"
+
+#: Views/Home.php:10 Views/Home.php:11
+msgid "Click to refresh this page"
+msgstr "Clic para refrescar esta página"
+
+#: Views/Home.php:11
+msgid "Lightweight framework"
+msgstr "Framework ligero"
+
+#: Views/Home.php:15
+msgid "Ready to go!"
+msgstr "¡Todo preparado!"
+
+#: Views/Home.php:21
+msgid ""
+"Your Humm PHP copy are ready to go. You can start modifying this Home view "
+"and adding other views."
+msgstr ""
+"Su copia de Humm PHP está lista para usar. Puede comenzar modificando esta "
+"vista Home y añadiendo otras."
+
+#: Views/Home.php:24
+msgid ""
+"To get more information, obtain help and download the last Humm PHP release "
+"visit their website at:"
+msgstr ""
+"Para más información, obtener ayuda y descargar la última versión de Humm "
+"PHP visite su sitio web en:"
+
+#: Views/Home.php:27 Views/Home.php:33 Views/Home.php:38
+msgid "Visit the Humm PHP website"
+msgstr "Visite el sitio web de Humm PHP"
+
+#: Views/Home.php:33
+msgid "Powered by Humm PHP"
+msgstr "Basado en Humm PHP"
+
+#: Views/Helpers/Languages.php:10
+msgid "Choose your language from this list"
+msgstr "Escoja un lenguaje de esta lista"
+
+#: Views/Helpers/Languages.php:21
+msgid "Change"
+msgstr "Cambiar"
+
+#: Views/Helpers/Languages.php:22
+msgid "Press this button to change the site language"
+msgstr "Pulse este botón para cambiar el lenguaje del sitio"

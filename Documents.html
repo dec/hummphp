@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1" />
+    <title>HummPHP documents</title>
+    <style>
+      @media all
+      {
+        body
+        {
+          font-size: 1em;
+          line-height: 1.5em;
+          font-family: Arial;
+        }
+        ul
+        {
+          list-style: none;
+        }
+        #documentsIndexList
+        {
+          color: #000;
+          font-size: 1.1em;
+          line-height: 2em;
+          list-style: decimal;
+          border-radius: 0.4em;
+          margin: 1em 1em 3em 0;
+          padding: 1em 1em 1em 2em;
+          background-color: #fbfbfb;
+        }
+        #documentsIndexList ol
+        {
+          margin: 0 1em 0 2em;
+          list-style: upper-alpha;
+        }
+        #documentsIndexList ul
+        {
+          list-style: circle;
+          margin: 0 1em 0 0.9em;
+        }
+        #documentsIndexList a
+        {
+          text-decoration: none;
+        }
+        #documentsIndexList a:hover
+        {
+          text-decoration: underline;
+        }
+        #documentsIndexList small
+        {
+          font-size: 0.8em;
+          font-weight: bold;
+        }
+        #documentsContents ul
+        {
+          padding: 1em;
+          color: infotext;
+          margin: 1em 0 0 0;
+          background-color: infobackground;
+        }
+        #documentsContents pre
+        {
+          color: #000;
+          margin: 1em 0;
+          display: block;
+          font-size: 0.9em;
+          line-height: 1.8em;
+          border-radius: 0.4em;
+          padding: 1.6em 0 0 1em;
+          background-color: #F0F0F0;
+        }
+        .toPageTop
+        {
+          text-align: right;
+        }
+        footer
+        {
+          margin: 1em 0 0 0;
+          padding: 1em 0 0 0;
+          text-align: center;
+          border-top: #F0F0F0 solid 2px;
+        }
+      }
+      @media all and (max-width:700px)
+      {
+        #documentsContents pre
+        {
+          text-align: left;
+        }
+      }
+      @media all and (max-width:450px)
+      {
+        #documentsIndexList
+        {
+          text-align: left;
+          margin: 1em 1em 1em 0;
+        }
+        #documentsIndexList ol
+        {
+          margin: 0 1em 0 1em;
+        }
+        #documentsIndexList ul
+        {
+          margin: 0 1em 0 0.4em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pageContent">
+      <h3 class="softwareIcon">
+        Humm PHP documents
+      </h3>
+      <p>
+        Here you can learn more about <strong>Humm PHP</strong> in order to be ready to use in your sites. I explain here how you can add content to your site, how to configure <strong>Humm PHP</strong> to run multiple sites, how to create plugins to extend the program capabilities and more. Please feel free to contact with me with comments about this documentation. Just write me an email to:
+        <a href="mailto:info@davidesperalta.com" title="Feel free to contact with me!">info@davidesperalta.com</a>
+      </p>
+      <h3 id="documentsIndex">
+        Index of contents
+      </h3>
+      <ol id="documentsIndexList">
+        <li><a href="#whatDoYouNeed" title="Go to this section">What do you need</a></li>
+        <li>
+          <a href="#optionalConfig" title="Go to this section">Optional configuration</a>
+          <ol>
+            <li><a href="#languageConfig" title="Go to this section">Language</a></li>
+            <li><a href="#errorsConfig" title="Go to this section">Errors report</a></li>
+            <li><a href="#pluginsConfig" title="Go to this section">Active plugins</a></li>
+            <li><a href="#databaseConfig" title="Go to this section">Database DSN</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#addingSiteViews" title="Go to this section">Adding site views</a>
+          <ol>
+            <li><a href="#viewsUrls" title="Go to this section">Views URLs</a></li>
+            <li><a href="#viewsUrlsRewrite" title="Go to this section">Views URLs (rewrite)</a></li>
+            <li><a href="#deepViewsUrls" title="Go to this section">Deep views URLs</a></li>
+            <li><a href="#viewsFiles" title="Go to this section">Views files</a></li>
+            <li><a href="#viewsHelpers" title="Go to this section">Views helpers</a></li>
+            <li><a href="#viewsDirectories" title="Go to this section">Views directories</a></li>
+            <li><a href="#viewsVariables" title="Go to this section">Views variables</a></li>
+            <li><a href="#viewsClasses" title="Go to this section">Views classes</a></li>
+            <li><a href="#sharedViews" title="Go to this section">Shared views</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#siteTranslation" title="Go to this section">Site translation</a>
+          <ol>
+            <li><a href="#shortI18nFuncs" title="Go to this section">Short i18n functions</a></li>
+            <li><a href="#standardPOFiles" title="Go to this section">Standard PO files</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#runningMultisites" title="Go to this section">Running multisites</a>
+          <ol>
+            <li><a href="#sitesDirectories" title="Go to this section">Sites directories</a></li>
+            <li><a href="#sitesSharedDirectories" title="Go to this section">Sites shared directories</a></li>
+            <li><a href="#sitesServerConfig" title="Go to this section">Server configuration</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#hummPlugins" title="Go to this section">Humm PHP plugins</a>
+          <ol>
+            <li>
+              <a href="#pluginFilters" title="Go to this section">Plugin filters</a>
+              <ul>
+                <li><small><a href="#DATABASE_SQL" title="Go to this section">DATABASE_SQL</a></small></li>
+                <li><small><a href="#VIEW_TEMPLATE" title="Go to this section">VIEW_TEMPLATE</a></small></li>
+                <li><small><a href="#BUFFER_OUTPUT" title="Go to this section">BUFFER_OUTPUT</a></small></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pluginActions" title="Go to this section">Plugin actions</a>
+              <ul>
+                <li><small><a href="#PLUGINS_LOADED" title="Go to this section">PLUGINS_LOADED</a></small></li>
+                <li><small><a href="#CHECK_REQUERIMENTS" title="Go to this section">CHECK_REQUERIMENTS</a></small></li>
+                <li><small><a href="#DATABASE_CONNECTED" title="Go to this section">DATABASE_CONNECTED</a></small></li>
+                <li><small><a href="#SCRIPT_SHUTDOWN" title="Go to this section">SCRIPT_SHUTDOWN</a></small></li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <a href="#recommendedTools" title="Go to this section">Recommended tools</a>
+        </li>
+      </ol>
+      <div id="documentsContents" class="expandedContents">
+        <div id="whatDoYouNeed" class="documentsSection">
+          <h3 class="softwareIcon">
+            What do you need
+          </h3>
+          <p>
+            In order to use <strong>Humm PHP</strong> for your sites you need a web server which run PHP 5.4 or later. You no need to perform any installation process and all the configuration options are optionals, so your copy of <strong>Humm PHP</strong> must works like a charm just when copy the distribution files into your web server. However probably you want to take a look at the optional configuration in order to customize your <strong>Humm PHP</strong> copy.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="optionalConfig" class="documentsSection">
+          <h3 class="softwareIcon">
+            Optional configuration
+          </h3>
+          <p>
+            Here you can learn how to use the optional configuration in order to customize your <strong>Humm PHP</strong> copy. For example if you specify the appropriate database DSN option, then <strong>Humm PHP</strong> automatically connect with the specified database and put it available to be use in your site. Also you can set the default site language, the errors report level, etc.
+          </p>
+          <p>
+            <strong>Humm PHP</strong> provides you with a configuration file which can be found in:
+          </p>
+          <pre>
+/Humm/Sites/Main/Config/Config.php (Config for the main or default site)
+   </pre>
+          <p>
+            Open "Config.php" with your favorite text editor and set the configuration constants which that file defines. Since <strong>Humm PHP</strong> support multisites, you can set diferent configuration options per every site, just using the appropriate "Config.php" file from every site directory. See below in this documentation how to setup <strong>Humm PHP</strong> to run various sites a the same time.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="languageConfig" class="documentsSection">
+          <h3 class="softwareIcon">
+            Language
+          </h3>
+          <p>
+            Open your site "Config.php" and locate the "HUMM_LANGUAGE" constant. You can define this constant with a valid language code (from the ISO 639-1 list) to tell <strong>Humm PHP</strong> what language you want to use. A valid language code implied that the appropriate MO file is available in your site. See below in this documentation how you can translate your sites using standard and well know PO files.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="errorsConfig" class="documentsSection">
+          <h3 class="softwareIcon">
+            Errors report
+          </h3>
+          <p>
+            Open your site "Config.php" and locate the "HUMM_SHOW_ERRORS" constant. You can define this constant with a boolean value, "True" or "False", in order to establish the <strong>Humm PHP</strong> errors report level. This configuration determine if <strong>Humm PHP</strong> print out possible errors information or must to hide it for security purposes.
+          </p>
+          <p>
+            The default value for this configuration option is "True", which means <strong>Humm PHP</strong> print out information about any possible error. Even when you change this configuration option to "False" <strong>Humm PHP</strong> print out the errors information, BUT ONLY IF runs in a local server, AND NEVER in a remote web server. The recommended value for this constant is "True" while debug the application, and "False" when this are placed in the production server.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="pluginsConfig" class="documentsSection">
+          <h3 class="softwareIcon">
+            Active plugins
+          </h3>
+          <p>
+            Open your site "Config.php" and locate the "HUMM_ACTIVE_PLUGINS" constant. You can define this constant with comma separated values which correspond with plugin dir/names in order to active the specified plugins in your site. For example, supose you have two plugins in your <strong>Humm PHP</strong> plugins directory: "MyPlugin" and "OtherPlugin".
+          </p>
+          <p>
+            Now you can maintain deactivated these plugins in your site by let the "HUMM_ACTIVE_PLUGINS" constant empty. If you want to active "MyPlugin" just define the constant with "MyPlugin" value. If you want to active both plugins define the constant as: "MyPlugin,OtherPlugin". By default this constant is empty, that is, no one plugin is activated.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="databaseConfig" class="documentsSection">
+          <h3 class="softwareIcon">
+            Database DSN
+          </h3>
+          <p>
+            Open your site "Config.php" and locate the "HUMM_DATABASE_DSN" constant. You can define this constant with a valid database connection string (DSN) and <strong>Humm PHP</strong> automatically establish the connection with the database and therefore allows you to works with the database. If you let this configuration option empty <strong>Humm PHP</strong> simply understand that your site do not need any database connection.
+          </p>
+          <p>
+            Since <strong>Humm PHP</strong> use PHP PDO to works with databases, your DSN can specify a valid database string for any of the database drivers supported by PHP PDO: MySQL, FireBird, PostgreSQL, SQLite and many more. If finally you decide to connect with a database, do not forget to provide a valid database user name and password using the appropriate configuration constants: "HUMM_DATABASE_USER" and "HUMM_DATABASE_PASS".
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="addingSiteViews" class="documentsSection">
+          <h3 class="softwareIcon">
+            Adding site views
+          </h3>
+          <p>
+            <strong>Humm PHP</strong> based their work in the concept of site views. A site view is a PHP file which the system require on the appropriate user request. Every user request is made with an URL, which correspond with one file view. An example can be this "Documents" view. Yes; this site is of course managed by <strong>Humm PHP</strong> and you are now read the "Documents" view contents.
+          </p>
+          <p>
+            A <strong>Humm PHP</strong> site must have one mandatory view: the Home view, which is required everytime the user request the site home and also if the requested view are not found. The Home view is the only mandatory view and the system inform with an error if do not exists. Then you can add to your site unlimited views in order to provide the appropriate contents to your visitors.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="viewsUrls" class="documentsSection">
+          <h3 class="softwareIcon">
+            Views URLs
+          </h3>
+          <p>
+            Every site view correspond with the appropriate request URL. Or in the same way every URL correspond with the appropriate view. <strong>Humm PHP</strong> do not use any MOD REWRITE to maintain it server independent, however, provides with user friendly URLs like this:
+          </p>
+          <pre>
+http://www.yoursite.com/
+
+http://www.yoursite.com/?home
+
+http://www.yoursite.com/?contact
+
+http://www.yoursite.com/?search
+   </pre>
+          <p>
+            The first and second URLs correspond with the "Home" view. The second correspond with a "Contact" view and the third correspond with a "Search" view. The system is responsible to require the appropriate view per user requests and your responsibility is to provided the appropriate views files and optionally views associated PHP classes.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        
+        <div id="viewsUrlsRewrite" class="documentsSection">
+          <h3 class="softwareIcon">
+            Views URLs (rewrite)
+          </h3>
+          <p>
+            Certainly Humm PHP do not need any server rewrite module in order to work with friendly URLs, as you can see above. However, if you want to use a rewrite module, can do it without problems. Simply put an ".htaccess" file like this in your Humm PHP installation root directory:
+          </p>
+          <pre>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.php
+   </pre>
+          <p>
+            As you can see the point is that every non existing file request must end in the "index.php" file. The above file sample can be used in Apache server, but you can write something similar using the appropriate syntax for your server. Anyway, if you add (remember this is optional) a file like the above, then you can use URLs like this:
+          </p>
+          <pre>
+http://www.yoursite.com/
+
+http://www.yoursite.com/home
+
+http://www.yoursite.com/contact
+
+http://www.yoursite.com/search
+   </pre>
+          <p>
+            Note how we do not need the "?" symbol into the URLs. In fact Humm PHP works in the same way if you use a rewrite module or not, so you can doing whatever you wanted in this aspect.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        
+        <div id="deepViewsUrls" class="documentsSection">
+          <h3 class="softwareIcon">
+            Deep views URLs
+          </h3>
+          <p>
+           Maintaining the backward compatiblity, Humm PHP offers now the ability to use "deep" views and their appropriate URLs. Before, Humm PHP only offers "single" views in the URLs, so, for example, the below URLs:
+          </p>
+          <pre>
+http://www.yoursite.com/?admin
+http://www.yoursite.com/?admin/user
+http://www.yoursite.com/?admin/user/profile
+   </pre>
+          <p>
+           ... wanted for the "admin" view. All of the above URLs cause to load the "admin" view. Ok. Even when we can deal with a sole view and then play with the URLs arguments, etc., this can be enough. But now Humm PHP support also "deep" views, which means than the above URLs certainly fallback in an "admin" view, but, also look for the possible "AdminUser" and "AdminUserProfile" views.
+          </p>
+          <p>
+           If few words, everything works like before (in fact they are backward compatible), but now we can prepare an "AdminUser.php" view, and an optional "AdminUserView.php" class, in order to be ready to used for an URL like the below one: 
+          </p>
+          <pre>
+http://www.yoursite.com/?admin/user
+   </pre>
+          <p>
+           Of course the above URL can be enhanced using the appropriate server's rewrite module, then they can look like the below one:
+          </p>
+          <pre>
+http://www.yoursite.com/admin/user
+   </pre>          
+          <p>
+           With the "deep" views we not only can be ready to prepare more views for our sites, but, also to be more effective when working on that. Before this feature, we can certainly have an "admin" view and then dealing with the URLs arguments, etc. This can be enough in the optional "Admin" view's class, but, what happend with the views' templates?   
+          </p>
+          <p>
+           Before the "deep" views feature we only can use one view's template, and, even with the usage of views' helpers files too, there is no doubt that the "deep" views offer us a better approach, because, following the above URL sample, we can have one "Admin" view's template and optional class, and one "AdminUser" view's template and optional class too, separating their logic and contents in a better way.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->        
+        
+        
+        <div id="viewsFiles" class="documentsSection">
+          <h3 class="softwareIcon">
+            Views files
+          </h3>
+          <p>
+            <strong>Humm PHP</strong> is distributed with a default "Home" view which of course you can modify it to suit your needs. The "Home" view file is placed under your sites directories in:
+          </p>
+          <pre>
+/Humm/Sites/Main/Views/
+   </pre>
+          <p>
+            The above views directory path is intended for the main site. Remember you can run various sites using the same <strong>Humm PHP</strong> base code, so you can found your sites views in the appropriate sites directories:
+          </p>
+          <pre>
+/Humm/Sites/Main/Views/
+
+/Humm/Sites/Othersite/Views/
+
+/Humm/Sites/Anothersite/Views/
+   </pre>
+          <p>
+            Into the views directories you can place your views files, which in fact consists in simply and powerfull PHP files. So yes, you can found in your site views directory a file named "Home.php", which contain the contents to be shows when the user request the site home. Ok. Place now a file named "Contact.php" and another file more named "Search.php". Tachan! You have now another two views in your site, which correspond with this request URLs:
+          </p>
+          <pre>
+http://www.yoursite.com/?contact
+
+http://www.yoursite.com/?search
+   </pre>
+          <p>
+            On such URLs the system automatically requires the appropriate "Contact.php" or "Search.php" views files. Note we name our views with a capitalized name: this is mandatory by convention and therefore a "contact.php" or "search.php" cannot be take as views files.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="viewsHelpers" class="documentsSection">
+          <h3 class="softwareIcon">
+            Views helpers
+          </h3>
+          <p>
+            There two types of views in <strong>Humm PHP</strong> and your sites: the main views and the helpers views. The main views correspond with the appropriate URL argument or user request. The helper views are intended to be used by other views, included helpers itself. The helpers views must be stored into the subdirectory "Helpers" under the "Views" directory.
+          </p>
+          <p>
+            Every PHP file in such directory are considered views helpers and can be displayed by others views using the "displayView" method of your view HtmlTemplate object. Just imagine something like that in your "Home.php" view code:
+          </p>
+          <pre>
+$this->displayView('MyHeader');
+This is the content of my Home.php view
+
+$this->displayView('MyFooter');
+   </pre>
+          <p>
+            As you can see above, we use the "$this" view variable to access to the view HtmlTemplate object. What we do is to call the "displayView" method, indicating the name of our required helper. In this case we supose that two helpers exists: "MyHeader.php" and "MyFooter.php", but note that we can ommit the ".php" extensions when display views using the "displayView" method.
+          </p>
+          <p>
+            The views helpers provide us with the right way to reuse code in our site views. So we can reuse the same "MyHelper" helper in every "view" of our site, and therefore we no need to write the same code over and over again in every site view.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="viewsDirectories" class="documentsSection">
+          <h3 class="softwareIcon">
+            Views directories
+          </h3>
+          <p>
+            Under your site views directory you can found by default certain subdirectories. This subdirectories are included by default to place more or less common site files. Also, you can access to these views directories URLs using the appropriate views variables (see below) so I recommend you to use these directories instead others. Below you can view a site views directory tree:
+          </p>
+          <pre>
+/Humm/Sites/Main/
+&nbsp;&nbsp;/Files/
+&nbsp;&nbsp;/Helpers/
+&nbsp;&nbsp;/Images/
+&nbsp;&nbsp;/Scripts/
+&nbsp;&nbsp;/Styles/
+   </pre>
+          <p>
+            By default <strong>Humm PHP</strong> include in your views directory these subdirectories: Files, Helpers, Images, Scripts and Styles. Is easy to view that you can put your site CSS style files in the Styles directory, your site Javascript files in the Scripts directory, etc. The Files directory is intended to put downlable files like ZIP or PDF files, for example
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="viewsVariables" class="documentsSection">
+          <h3 class="softwareIcon">
+            Views variables
+          </h3>
+          <p>
+            <strong>Humm PHP</strong> set in all site views certain useful PHP variables which contain general information that you can use in your views. This information is available using the appropriate <strong>Humm PHP</strong> system classes, however, they are added into the views directly like template variables for quick usage. The default site views variables are:
+          </p>
+          <dl>
+            <dt>$this</dt>
+            <dd>This variable store an instance of the view HtmlTemplate object.</dd>
+            <dt>$siteLanguage</dt>
+            <dd>This variable store your site current language code.</dd>
+            <dt>$siteLanguages</dt>
+            <dd>This variable store codes/names of your site languages.</dd>
+            <dt>$siteLanguageDir</dt>
+            <dd>This variable store "ltr" or "rtl", depend on your site language direction.</dd>
+            <dt>$viewName</dt>
+            <dd>This variable store the name of the current site view.</dd>
+            <dt>$lowerViewName</dt>
+            <dd>This variable store the name of the current site view in lower case.</dd>
+            <dt>$siteView</dt>
+            <dd>This variable store an instance of the current view class.</dd>
+            <dt>$sharedView</dt>
+            <dd>This variable store an instance of the optional shared view class.</dd>
+            <dt>$sharedSiteSharedView</dt>
+            <dd>This variable store an instance of the optional shared site shared view class.</dd>
+            <dt>$requestUri</dt>
+            <dd>This variable store the current request URI.</dd>
+            <dt>$siteUrl</dt>
+            <dd>This variable store your site root or home URL.</dd>
+            <dt>$viewsUrl</dt>
+            <dd>This variable store your site views directory URL.</dd>
+            <dt>$viewsFilesUrl</dt>
+            <dd>This variable store your site views files directory URL.</dd>
+            <dt>$viewsImagesUrl</dt>
+            <dd>This variable store your site views images directory URL.</dd>
+            <dt>$viewsStylesUrl</dt>
+            <dd>This variable store your site views styles directory URL.</dd>
+            <dt>$viewsScriptsUrl</dt>
+            <dd>This variable store your site views scripts directory URL.</dd>
+            <dt>$sharedViewsUrl</dt>
+            <dd>This variable store your sites shared views directory URL.</dd>
+            <dt>$sharedViewsFilesUrl</dt>
+            <dd>This variable store your sites shared views files directory URL.</dd>
+            <dt>$sharedViewsImagesUrl</dt>
+            <dd>This variable store your sites shared views images directory URL.</dd>
+            <dt>$sharedViewsStylesUrl</dt>
+            <dd>This variable store your sites shared views styles directory URL.</dd>
+            <dt>$sharedViewsScriptsUrl</dt>
+            <dd>This variable store your sites shared views scripts directory URL.</dd>
+            <dt>$hummVersion</dt>
+            <dd>This variable store your <strong>Humm PHP</strong> copy version.</dd>
+            <dt>$hummRelease</dt>
+            <dd>This variable store your <strong>Humm PHP</strong> copy release date.</dd>
+          </dl>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="viewsClasses" class="documentsSection">
+          <h3 class="softwareIcon">
+            Views classes
+          </h3>
+          <p>
+            Remember: a view file is a simply but powerfull PHP file intended to print out the appropriate site contents. In every view you can use HTML, CSS, JavaScript and powerful PHP code to present the contents to your site visitors. Into a view file <strong>Humm PHP</strong> provides with various PHP variables containing information like the site language, the current language direction, various site URLs ready to use, etc.
+          </p>
+          <p>
+            Ok. You can use the view file to provide your site contents, so what is a view class and when use it? A view class is an optional PHP class derived from the base "HummView" class which you can implement to be associated with a site file view. This mean that such class are setup before a view file is required, and therefore you can provide the file view with new PHP variables to be ready to use.
+          </p>
+          <p>
+            Supose you need to retrieve certain records from a database to be print out from the "Search.php" file view. Instead of codify the appropriate code into the "Search.php" file, your database logic can reside in the view associated class, so you retrieve the records from the database and put it into a "$SearchResults" variable, for example. Then you can use this variable from the view file in an comfortable way.
+          </p>
+          <p>
+            Some conventions about view classes. Views classes need to be implemented into a file under the site classes directory, for example:
+          </p>
+          <pre>
+/Humm/Sites/Main/Classes/
+   </pre>
+          <p>
+            Under such directory you can place your view class. For example, supose we want to prepare views class for our site "Contact.php" and "Search.php" views files, then we prepare these class files:
+          </p>
+          <pre>
+/Humm/Sites/Main/Classes/ContactView.php
+
+/Humm/Sites/Main/Classes/SearchView.php
+   </pre>
+          <p>
+            Note the capitalized classes and file names. This is mandatory and classes like below are not considered valid view classes:
+          </p>
+          <pre>
+/Humm/Sites/Main/Classes/contactview.php
+
+/Humm/Sites/Main/Classes/searchView.php
+   </pre>
+          <p>
+            Then your views classes must be derived from the system "HummView" base class. This is an example of the "ContactView" class containing the constructor method, which can be used to provide new PHP variables to the views file template:
+          </p>
+          <pre>
+namespace Humm\Sites\Main\Classes;
+
+use
+  \Humm\System\Classes\HummView,
+  \Humm\System\Classes\HtmlTemplate;
+
+class ContactView extends HummView
+{
+  public function __construct(HtmlTemplate $template)
+  {
+    parent::__construct($template);
+    $template->myNewVariable = 'Variable content';
+    $template->anotherVariable = 'Variable content';
+    // and so on...
+  }
+   </pre>
+          <p>
+            That's all! Your "ContactView" class is ready to use and the system setup it just before the correspond view file "Contact.php" are required, so you can use in such file the new template variables added by the "ContactView" class. Finally I recommend you to take a look at the "HomeView" class provided by <strong>Humm PHP</strong> along the "Home.php" view file included by the Humm PHP distribution. This "HomeView" class shows how to change the site user language by requests, so you can imagine that view classes can expand the views files capabilities in lot of ways.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="sharedViews" class="documentsSection">
+          <h3 class="softwareIcon">
+            Shared views
+          </h3>
+          <p>
+            Above we talking about optional site view classes, which offers the hability (between other things) to provide with variables on the associated site views. Is a common issue the need to use certain variables in various site views. Of course we can use every site views class to setup this variables, but, <strong>Humm PHP</strong> provide you with a more convenient way to do this.
+          </p>
+          <p>
+            Supose you have two site views: "Home.php" and "Contact.php". You can implement (optionally) two views classes: "HomeView" and "ContactView", which are setup just before the associated site views ("Home.php" and "Contact.php") are displayed. Now supose you want to use in both views a PHP variable named "$copyright". You can create two views classes or just create one "SharedView" class.
+          </p>
+          <p>
+            A "SharedView" is optional and can reside in your site classes directory. Must follow all convenitions and must be inherited from the "HummView" class, just like any other site views class. However, the optional "SharedView" class are setup by the system just before display any site view. So you can use the "SharedView" to setup stuff which can be used across various site views.
+          </p>
+          <p>
+           Another possible "SharedView" class to be used is the optionally placed in the shared site classes directory. If this class exists, they are instantiated just after the user site optional "SharedView" class does. This optional shared site "SharedView" class can be useful mostly if you manage various sites with Humm PHP. You can use this class to put certain stuff into the view template for every site managed by the system.
+          </p>
+          <p>
+            For more information you can take a look at the real sample included by the Humm PHP site sample, which implement the optional "SharedView" class and also the "optional" shared site "SharedView" class.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="siteTranslation" class="documentsSection">
+          <h3 class="softwareIcon">
+            Site translation
+          </h3>
+          <p>
+            All <strong>Humm PHP</strong> views and plugins are ready to be translated in a very easy way. <strong>Humm PHP</strong> make this possible by the use of standard PO files which you can edit using, for example, the PO Edit program. The only thing you need to do is to use the appropriate I18n functions in your views and plugins, instead of the use of hard writen strings. So even when you do not plain to translate your site, is a good idea to use the refered functions instead of hard strings, because in this way your site can be easy translated when you need.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="shortI18nFuncs" class="documentsSection">
+          <h3 class="softwareIcon">
+            Short i18n functions
+          </h3>
+          <p>
+            <strong>Humm PHP</strong> provides you with some convenient i18n functions in order to prepare your strings in order to be translated. Declared into the global PHP namespace this functions are:
+          </p>
+          <pre>
+The t() function, which return an string translation or the original one.
+   </pre>
+          <pre>
+The e() function, which directly print an string translation or the original one.
+   </pre>
+          <pre>
+The n() function, which return the right singular or plural translated version.
+   </pre>
+          <pre>
+The ne() function, which directly print the right singular or plural translated version.
+   </pre>
+          <p>
+            Supose you want to shown to your site visitors the message "Hello world!" from one of your site views. May you think in write something like that into the view file:
+          </p>
+          <pre>
+Hello world!
+   </pre>
+          <p>
+            Instead of write hard strings into your site views, you can use the appropriate i18n function in someway like this:
+          </p>
+          <pre>
+<?php e("e('Hello world!');") ?>
+   </pre>
+          <p>
+            Just doing this your "Hello world!" are ready to be translated. Your site PO files scan the code for this kind of strings and allows you to provide the appropriate translation. Then <strong>Humm PHP</strong> automatically load the neccesary MO file (compiled PO file) in order to make their messages availables and therefore use it for strings tranlations purposes. I carefully recommend you use the short i18n functions instead of hard strings in your sites.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="standardPOFiles" class="documentsSection">
+          <h3 class="softwareIcon">
+            Standard PO files
+          </h3>
+          <p>
+            Every site and plugin directory can provide a "Locale" directory in which <strong>Humm PHP</strong> can locate the appropriate site and plugin MO files (which are compiled PO files). Every MO file must be placed into a "Locale" subdirectory, and this subdirectory and the MO file itself must be named by the language translation which the included. For example, take a look at this MO file paths:
+          </p>
+          <pre>
+/Humm/Sites/Main/Locale/es/es.mo
+
+/Humm/Sites/Main/Plugins/SamplePlugin/Locale/es/es.mo
+   </pre>
+          <p>
+            Above you can view two MO files which correspond with the main site and certain sample plugin. I recommend you to use one of the ISO 639-1 language codes for the name of your "Locale" language directories and the MO file name. <strong>Humm PHP</strong> use the ISO 639-1 list to, for example, to provide the right language name from a language code. Sites nor plugins not need to worry about this MO files, but the system is responsible to automatically load it in order to be availables.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="runningMultisites" class="documentsSection">
+          <h3 class="softwareIcon">
+            Running multisites
+          </h3>
+          <p>
+            <strong>Humm PHP</strong> allows you to manage multiple sites using the same base code. This is extremelly easy and the only which you need is to prepare one site directory for every site you want to run. On the other hand some server side configuration is also required: basically we need to point our differents domains to be use the same <strong>Humm PHP</strong> directory in order to serve their contents. Doing this <strong>Humm PHP</strong> automatically recognize what site contents are required and provided the user with the appropriate response.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="sitesDirectories" class="documentsSection">
+          <h3 class="softwareIcon">
+            Sites directories
+          </h3>
+          <p>
+            Familiarize yourself with the Humm directories tree:
+          </p>
+          <pre>
+/Humm/
+&nbsp;&nbsp;/Sites/
+&nbsp;&nbsp;/System/
+&nbsp;&nbsp;/Plugins/
+   </pre>
+          <p>
+            <strong>Humm PHP</strong> is divided in three directories named "System", "Plugins" and "Sites". All your sites stuff resides into the "Sites" directory like in this tree:
+          </p>
+          <pre>
+/Humm/Sites/
+&nbsp;&nbsp;/Main/
+&nbsp;&nbsp;/Shared/
+&nbsp;&nbsp;/Othersite/
+&nbsp;&nbsp;/Anothersite/
+   </pre>
+          <p>
+            Every specific "Sites" subdirectory represent a site ready to be managed by <strong>Humm PHP</strong>. You no need to create the sites "Main" directory: this contains the default site stuff. Also you no need to create the "Shared" directory, which is intended to place stuff to be shared along all other sites. The key for run multisites are in the other sites subdirectories, which need to be named like the server name you want to use for every site. This sites subdirectories neccesary be named in a capitalized way, the first letter must be in upper case instead all others remains in lower case.
+          </p>
+          <p>
+            Supose you have three domains and you want to share the same <strong>Humm PHP</strong> copy in order to run it. You have for example this tree domains:
+          </p>
+          <pre>
+http://www.peterparkerhome.com/
+
+http://www.peterparkerbusiness.com/
+
+http://www.peterparkerrocks.com/
+   </pre>
+          <p>
+            Supose now your <strong>Humm PHP</strong> resides into the first domain, then you need to have exactly this subdirectories into your <strong>Humm PHP</strong> Sites directory:
+          </p>
+          <pre>
+/Humm/Sites/
+&nbsp;&nbsp;/Main/
+&nbsp;&nbsp;/Peterparkerbusiness/
+&nbsp;&nbsp;/Peterparkerrocks/
+   </pre>
+          <p>
+            In this case the "Main" directory contains the stuff for "www.peterparkerhome.com". The "Peterparkerbusiness" contains the stuff for "www.peterparkerbusiness.com" and finally the "Peterparkerrocks" directory correspond with the "www.peterparkerrocks.com" domain. There is no limit in the number of sites which <strong>Humm PHP</strong> can run.
+          </p>
+          <p>
+            Note that Humm PHP also supports multisites with subdomain URLs. Then supose this possible URLs for your sites:
+          </p>
+          <pre>
+http://www.home.peterparker.com/
+
+http://www.business.peterparker.com/
+   </pre>
+          <p>
+            For these URLs you must provide sites directories like these:
+          </p>
+          <pre>
+/Humm/Sites/
+&nbsp;&nbsp;/Main/
+&nbsp;&nbsp;/HomePeterparker/
+&nbsp;&nbsp;/BusinessPeterparker/
+   </pre>
+          <p>
+            A particular case can happend if you want to use numeric domains or domains that start with one or more numbers. Since PHP do not allow identifiers (like in PHP namespaces) starting with a number or just whole numbers, <strong>Humm PHP</strong> handle the possible problems by converting these numeric domains into string representations. Then supose you want to use domains like below:
+          </p>
+          <pre>
+http://www.peter.com/
+
+http://www.1001.com/
+
+http://www.10abc.com/
+   </pre>
+          <p>
+            For these URLs you must provide sites directories like these:
+          </p>
+          <pre>
+/Humm/Sites/
+&nbsp;&nbsp;/Main/
+&nbsp;&nbsp;/Onzezeon/
+&nbsp;&nbsp;/Onzeabc/
+   </pre>
+          <p>
+            Note the numbers conversion that <strong>Humm PHP</strong> does, by using the first two letters of the english numbers names:
+          </p>
+          <ul>
+            <li>0 = ze</li>
+            <li>1 = on</li>
+            <li>2 = tw</li>
+            <li>3 = th</li>
+            <li>4 = fo</li>
+            <li>5 = fi</li>
+            <li>6 = si</li>
+            <li>7 = se</li>
+            <li>8 = ei</li>
+            <li>9 = ni</li>
+          </ul>
+          <p>
+            Note also that not all domains which contain numbers must be converted into strings, since the problems come when a domain start with a number or they are an entire number. For example:
+          </p>
+          <pre>
+http://www.peter.com/
+
+http://www.abc10.com/
+   </pre>
+          <p>
+            These URLs you must provide sites directories like these:
+          </p>
+          <pre>
+/Humm/Sites/
+&nbsp;&nbsp;/Main/
+&nbsp;&nbsp;/Abc10/
+   </pre>
+          <p>
+            Just provide the appropriate "Sites" subdirectory corresponding with the appropriate domain or subdomain and that's all, <strong>Humm PHP</strong> do the rest. Just remember the probably most way to create new sites directories: just replicate the "Main" site directory from a clean <strong>Humm PHP</strong>, rename the directory name acordingly with the new domain or subdomain and begin to modify the site contents to suit your needs.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="sitesSharedDirectories" class="documentsSection">
+          <h3 class="softwareIcon">
+            Sites shared directories
+          </h3>
+          <p>
+            <strong>Humm PHP</strong> allow you to run multiple sites using the same base code, and, of course you can easy share resources (like views, helpers, styles, scripts, etc.) between the managed <strong>Humm PHP</strong> sites. To do this <strong>Humm PHP</strong> provide you the optional Sites shared directory. The sites shared directory follow the same directory tree than another site directory, in the sense that you can found the appropriate views, helpers, scripts, styles, etc.
+          </p>
+          <p>
+            The <strong>Humm PHP</strong> site view templates contains usefull variables to use the resources (mainly files, scripts and styles) placed into the sites shared directory. And <strong>Humm PHP</strong> take care automatically about the possible views and helpers placed in the shared directory too. If the user requested view is located into the sites shared directory this take precedence and is required in order to be used. The same thing can be said about any views helpers placed into the sites shared directory.' ) ?>
+          </p>
+          <p>
+            Also <strong>Humm PHP</strong> is responsible to automatically load the possible available text domain of the sites shared directory. This means that you no need to worry about what language need to use or is currently established. You can write views and helpers into the site shared directory as easy than you can does in any other <strong>Humm PHP</strong> site directory. You can also act over the user requested view and, for example, place variables into it, in a way that can be later used by any other site view or view helper.' ) ?>
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="sitesServerConfig" class="documentsSection">
+          <h3 class="softwareIcon">
+            Server configuration
+          </h3>
+          <p>
+            Once you prepare your appropriate sites directories, you need a way to tell your servers to point every appropriate domains to the same <strong>Humm PHP</strong> copy. How exactly doing this depend on your server administrator panel allows you to set the domains root directories. Ok. The only thing you need to do is to set this domains root directories path to point at the <strong>Humm PHP</strong> copy.
+          </p>
+          <p>
+            For example, remember our three sample sites:
+          </p>
+          <pre>
+http://www.peterparkerhome.com/
+
+http://www.peterparkerbusiness.com/
+
+http://www.peterparkerrocks.com/
+   </pre>
+          <p>
+            Now take a look at this domains possible root directories:
+          </p>
+          <pre>
+http://www.peterparkerhome.com/
+/public_html/peterparkerhome.com/
+
+http://www.peterparkerbusiness.com/
+/public_html/peterparkerhome.com/
+
+http://www.peterparkerrocks.com/
+/public_html/peterparkerhome.com/
+   </pre>
+          <p>
+            Yes. We need to configure the domains root directories to use exactly the same one. Then you only need to copy the <strong>Humm PHP</strong> files into the first root directory, since the other domains point to this directory too. That's all! Doing this your <strong>Humm PHP</strong> copy can runs multiple websites and is the responsible to use the appropriate contents for every site.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="hummPlugins" class="documentsSection">
+          <h3 class="softwareIcon">
+            Humm PHP plugins
+          </h3>
+          <p>
+            <strong>Humm PHP</strong> plugins are PHP classes derived from the base class "HummPlugin" and placed into the <strong>Humm PHP</strong> "Plugins" directory:
+          </p>
+          <pre>
+\Humm\Plugins\
+   </pre>
+          <p>
+            You need to follow certain <strong>Humm PHP</strong> conventions. For example, supose you want to create a plugin named "MyPlugin", then you place the class in this path:
+          </p>
+          <pre>
+\Humm\Plugins\MyPlugin\MyPlugin.php
+   </pre>
+          <p>
+            Next, your "MyPlugin.php" file must declare a class like this -note how the PHP namespace include the plugin directory name too:
+          </p>
+          <pre>
+namespace Humm\Plugins\MyPlugin;
+
+use
+  \Humm\System\Classes\HummPlugin;
+
+class MyPlugin extends HummPlugin {}
+   </pre>
+          <p>
+            Ant that's all. Doing this your plugin is ready to be loaded by <strong>Humm PHP</strong> along with the other possible plugins. Also every plugin directory can (optionally but recommended) have various subdirectories:
+          <p>
+          <pre>
+/MyPlugin/
+&nbsp;&nbsp;/Classes/
+&nbsp;&nbsp;/Locale/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/es/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/fr/
+&nbsp;&nbsp;/Views/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Files/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Scripts/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Images/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Styles/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/Helpers/
+   </pre>
+          <p>
+            The system class "HummPlugin" offers you various methods in order to get the URLs and directory paths of such directories. On the other hand, remember you can (and is recommended) use in your plugins the I18n short functions in order to get your plugin strings translated in differents languages. In fact you can use the "Locale" directory to put languages subdirectories, just like in the site directory: <strong>Humm PHP</strong> automatically load the appropriate MO file from your plugin "Locale" directory and put the translated strings available to be used.
+          </p>
+          <p>
+            Finally let me to say that <strong>Humm PHP</strong> is distributed with a sample plugin, which you can use to take as a template for your own plugins or just to learn how a <strong>Humm PHP</strong> plugin is implemented, what directories use, where to place the language files, etc.
+          </p>
+          <p>
+            Also note that the sytem automatically add for you the plugin views and helpers directories to the site template pahts. This means that you can have a "MyPluginView.pnp" file into the plugin views directory. Then you can display your plugin view into a site view using the "displayView" method of the HtmlTemplate object:
+          </p>
+          <pre>
+$this->displayView('MyHeader');
+
+This is the content of my Home.php view
+
+$this->displayView('MyPluginView');
+
+$this->displayView('MyFooter');
+   </pre>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="pluginFilters" class="documentsSection">
+          <h3 class="softwareIcon">
+            Plugin filters
+          </h3>
+          <p>
+            If the plugins only can act like other site classes they do not have too much sense. On the contrary, every <strong>Humm PHP</strong> plugin is informed by the system in certain circumstances, and, for example, provides a way to filter certain content before are print out to the user. In order to be notified by the system when certain filter can be used, your plugin class need to implement the "applyFilter" method in this way:
+          </p>
+          <pre>
+namespace Humm\Plugins\Sample;
+
+use
+  \Humm\System\Classes\HummPlugin,
+  \Humm\System\Classes\FilterArguments;
+
+class Sample extends HummPlugin
+{
+  public function applyFilter(FilterArguments $arguments)
+  {
+    // Filtered or not
+    return $arguments->content;
+  }
+}
+   </pre>
+          <p>
+            As you can see, every filter provide an "FilterArguments" argument, which is an object that, at the least, count with two properties: "filter" and "content". The "filter" contains the ID of the filter being executed, and, the "content" store the content which can be filter. This "content" relies on the filter ID, and can be an string, an object, an array or whatever else. The filter arguments also can contain a "bundle" property, which also can include any other information, depends on the appropriate filter.
+          </p>
+          <p>
+            One important thing you need to take into consideration when implement the "applyFilter" method in your plugins, is that this method ALWAYS need to return the "$arguments->content" value. So, you can apply or not certain filter to the contents, but, you always need to return the content, because in other case you broke the filter chain. For example, take a look at the below implementatio of the "applyFilter" method in a real scenario:
+          </p>
+          <pre>
+namespace Humm\Plugins\Sample;
+
+use
+  \Humm\System\Classes\HummPlugin,
+  \Humm\System\Classes\FilterArguments;
+
+class Sample extends HummPlugin
+{
+  public function applyFilter(FilterArguments $arguments)
+  {
+    switch ($arguments->filter) {
+      case PluginFilters::BUFFER_OUTPUT:
+        $arguments->content = \strtoupper($arguments->content);
+        break;
+    }
+
+    // Filtered or not
+    return $arguments->content;
+  }
+}
+   </pre>
+          <p>
+            As you can see, we want to react on the "BUFFER_OUTPUT" filter ID. This filter content is an string, and we want to put it in uppercase. But note how we act over the "content" variable, and the "applyFilter" method always return such variable, for example, when a filter ID is not what we are looking for.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="DATABASE_SQL" class="documentsSection">
+          <h3 class="softwareIcon">
+            <small>DATABASE_SQL</small>
+          </h3>
+          <p>
+            This filter occur before a database SQL statement must to be executed. The intention of this filter is to translate SQL statments into specific database drivers SQL statements. Since <strong>Humm PHP</strong> use PDO to connect with database, it's possible to use various database drivers. Then a plugin can be made in order to translate say "general" SQL statement into specific database drivers SQL statements.
+          </p>
+          <p>
+            This filter "content" is the SQL statement to be executed. The filter "bundle" contains an array with the specified SQL stament options. The plugin is responsible to return such SQL statement filter or not, in order to do not broken the chain.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="VIEW_TEMPLATE" class="documentsSection">
+          <h3 class="softwareIcon">
+            <small>VIEW_TEMPLATE</small>
+          </h3>
+          <p>
+            This filter occur before a site view must to be displayed or in any case when the system preparing the site view HtmlTemplate object with certain default variables. The plugin can use this filter in order to put into the HtmlTemplate object new variables, ready to be used later into the site views.
+          </p>
+          <p>
+            This filter "content" is an HtmlTemplate object which the plugin can use in order to modify or add new variables in order to put availables into the site views. The plugin is responsible to return in this filter the same content, that is, the HtmlTemplate object, filtered or not, in order to do not broken the chain. This is an implementation sample of this filter:
+          </p>
+          <pre>
+public function applyFilter(FilterArguments $arguments)
+{
+  switch ($arguments->filter) {
+    case PluginFilters::VIEW_TEMPLATE:
+      $arguments->content->myNewVariable = 'Variable content';
+      $arguments->content->otherUsefulVar = 'Variable content';
+      break;
+  }
+
+  // Filtered or not
+  return $arguments->content;
+}
+   </pre>
+          <p>
+            In the above code you assign two new variables ("$myNewVariable" and "$otherUsefulVar") to the current site view HtmlTemplate object. These variables become availables into the site view ready to be used.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="BUFFER_OUTPUT" class="documentsSection">
+          <h3 class="softwareIcon">
+            <small>BUFFER_OUTPUT</small>
+          </h3>
+          <p>
+            This filter occur before the user response output buffer must be printed. In other words, after the system prepare the appropriate response, the plugins allows to filter such response in some useful way.
+          </p>
+          <p>
+            This filter "content" is the entire output buffer just before to be print out and the plugin is responsible to return such output buffer filter or not, in order to do not broken the chain.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="pluginActions" class="documentsSection">
+          <h3 class="softwareIcon">
+            Plugin actions
+          </h3>
+          <p>
+            The plugins actions allows you to react when certain events occur in the <strong>Humm PHP</strong> system. For example, you can react when the plugins are loaded, when the system and plugins requeriments need to be checked, when the script shutdown occur, etc., etc. Every <strong>Humm PHP</strong> plugin must implement a public "execAction" method in the plugin class, and this method is called from the system when certain event or action occur. Here is a sample of how to implement the "execAction" method in a <strong>Humm PHP</strong> plugin:
+          </p>
+          <pre>
+namespace Humm\Plugins\Sample;
+
+use
+  \Humm\System\Classes\HummPlugin,
+  \Humm\System\Classes\ActionArguments;
+
+class Sample extends HummPlugin
+{
+  public function execAction(ActionArguments $arguments)
+  {
+
+  }
+}
+   </pre>
+          <p>
+            Similar to plugin filters, actions provides you in the "argument", an object of the "ActionArguments" class. This object contain at the least one property: "action", which contains the action ID being executed. The action arguments also can contain a "bundle" property, which also can include any other information, depends on the appropriate action. Unlike "applyFilter", the "execAction" method do not need in principle to return nothing. However, every action specify what the system expect to occur in the "execAction" method. Take a look at a sample implementation of the "execAction" method:
+          </p>
+          <pre>
+namespace Humm\Plugins\Sample;
+
+use
+  \Humm\System\Classes\HummPlugin,
+  \Humm\System\Classes\ActionArguments;
+
+class Sample extends HummPlugin
+{
+  public function execAction(ActionArguments $arguments)
+  {
+    switch ($arguments->action) {
+      case PluginActions::PLUGINS_LOADED:
+        // The plugins are loaded. Do something useful.
+        break;
+    }
+  }
+}
+   </pre>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="PLUGINS_LOADED" class="documentsSection">
+          <h3 class="softwareIcon">
+            <small>PLUGINS_LOADED</small>
+          </h3>
+          <p>
+            This action occur just after <strong>Humm PHP</strong> are loaded all the available plugins. You can use this action to do something useful at such time.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="CHECK_REQUERIMENTS" class="documentsSection">
+          <h3 class="softwareIcon">
+            <small>CHECK_REQUERIMENTS</small>
+          </h3>
+          <p>
+            This action is executed just after the system check their requeriments. If a plugin need certain requeriments can use this action in order to check it. If your requeriments fail, what you need to do is to use the "trigger_error" PHP function, and let the system to shows such errors in the standard way. Do not print out nothing in this action in order to inform the user about the requeriments fail: instead use the "trigger_error" function and let the system do the rest.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="DATABASE_CONNECTED" class="documentsSection">
+          <h3 class="softwareIcon">
+            <small>DATABASE_CONNECTED</small>
+          </h3>
+          <p>
+            This action is executed just after a database connection is performed. <strong>Humm PHP</strong> do not relies on any database, but, the user can decide to configure it to connect with someone. If then, the plugins are notified with this action when a database connection has been established. Remember <strong>Humm PHP</strong> provides with the "Database" system class, which allows you to works with databases in a supereasy way.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="SCRIPT_SHUTDOWN" class="documentsSection">
+          <h3 class="softwareIcon">
+            <small>SCRIPT_SHUTDOWN</small>
+          </h3>
+          <p>
+            <strong>Humm PHP</strong> register the appropriate PHP function in order to be notified when the script shutdown occur. This action is executed at such time, and the plugins can use it in order to make something useful at that time.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="recommendedTools" class="documentsSection">
+          <h3 class="softwareIcon">
+            Recommended tools
+          </h3>
+          <p>
+            I recommend you some tools in order to work with your <strong>Humm PHP</strong> copy. For debugging purposes I choose the <a href="http://www.apachefriends.org/" title="Click here to open the XAMPP project website">XAMPP project</a>, which can setup an Apache + PHP environment in seconds. For manage and edition purposes I personally use the <a href="http://netbeans.org/features/php/" title="Click here to open the NetBeans project website">NetBeans for PHP</a> program, probably the best code IDE for PHP, HTML, CSS, JavaScript and more. And for PO files (translation file) edition I carefully recommend the <a href="http://www.poedit.net/" title="Click here to open the PO Edit website"> PO Edit program</a>, which you can found ready to use in various operating systems.
+          </p>
+          <div class="toPageTop">
+            <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
+          </div>
+        </div>
+        <!-- /documentSection -->
+      </div>
+      <!-- /documentsContents -->
+    </div>
+    <!-- /pageContent -->
+    <footer>
+     ©2018 David Esperalta - All rights reserved
+    </footer>
+  </body>
+</html>
