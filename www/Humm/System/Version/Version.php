@@ -6,9 +6,9 @@
  * To have an easy access place to update version information.
  *
  * @author D. Esperalta <info@davidesperalta.com>
- * @link http://www.davidesperalta.com/
+ * @link https://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2017 Humm PHP - David Esperalta
+ * @copyright (C)2018 Humm PHP - David Esperalta
  */
 
 /**

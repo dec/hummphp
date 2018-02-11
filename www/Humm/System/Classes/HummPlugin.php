@@ -7,9 +7,9 @@
  * this in order to be considerer a valid Humm PHP plugin.
  *
  * @author D. Esperalta <info@davidesperalta.com>
- * @link http://www.davidesperalta.com/
+ * @link https://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2017 Humm PHP - David Esperalta
+ * @copyright (C)2018 Humm PHP - David Esperalta
  */
 
 namespace Humm\System\Classes;
