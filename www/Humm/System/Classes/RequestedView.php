@@ -46,7 +46,7 @@ class RequestedView extends Unclonable
    *
    * @static
    * @param HtmlTemplate $template Reference to an HTML template object.
-   * @return string User requested view.
+   * @return string The URL requested view.
    */
   public static function getViewName(HtmlTemplate $template)
   {
@@ -61,15 +61,15 @@ class RequestedView extends Unclonable
      * optional classes, so the above URL end into the "AdminUserProfile"
      * view and optional class ("AdminUserProfileView") to be loaded.
      */
-    $view = self::getDeepView();
-
+    $view = self::getDeepView($template);
+    
     // Check the existence of a possible "deep" view
     if (!self::isMainView($view) || !$template->viewFileExists($view)) {
       
       // Fallback to the Humm PHP system's home view.
       if ($view === '') {
         $view = self::SYSTEM_HOME_VIEW; 
-      }      
+      }
       
       /**
        * The below code is for backward compatibility: as is mentioned above,
@@ -94,9 +94,18 @@ class RequestedView extends Unclonable
     return \ucfirst($view);
   }
   
-  private static function getDeepView()
+  /**
+   * Try to find a possible deep view from the URL.
+   * 
+   * @static
+   * @param HtmlTemplate $template The current template
+   * @return string The possible deep view name
+   */
+  private static function getDeepView(HtmlTemplate $template)
   {
-    $view = '';    
+    $view = ''; 
+    $result = '';
+    $views = array();
     $args = UrlArguments::getAll();    
     
     foreach ($args as $arg) {
@@ -121,8 +130,50 @@ class RequestedView extends Unclonable
       if ((\substr($arg, 0, 1) !== '?') && (\substr($arg, 0, 1) !== '&')) {
         $view .= \ucfirst($arg);
       }
+      
+      if (!\in_array($view, $views)) {
+        $views[] = $view;
+      }
     }
-    return $view;    
+    
+    /**
+     * We must return here the first existing view according with the
+     * URL arguments, for example, supose the below URL:
+     * 
+     * http://www.site.com/forum/section/12
+     * 
+     * The above URL causes we have three possible views & views' classes:
+     * 
+     * Forum
+     * ForumSection
+     * ForumSection12
+     * 
+     * Instead of fallback to the home view if "ForumSection12" did not
+     * exists, we want to use the ForumSection view.
+     * 
+     * In this way we can provide more arguments into the URL and always
+     * use the expected view and view's class, for example:
+     * 
+     * http://www.site.com/forum/section/id/12
+     * 
+     * Probably we don't wanted a view & class like "ForumSectionId", but
+     * wanted to use the ForumSection view & class.
+     * 
+     * We can provide an ForumSectionId if we wanted that, of course.
+     * 
+     */
+    
+    $total_views = \count($views);    
+    
+    for ($i = $total_views - 1; $i >= 0; $i--) {
+      if (self::isMainView($views[$i]) && 
+       $template->viewFileExists($views[$i])) {
+         $result = $views[$i];
+         break;
+      }
+    }
+    
+    return $result;    
   }
 
 
