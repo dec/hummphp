@@ -15,3 +15,31 @@ footer
   margin-top: 1em;
 }
 
+/** 
+ * The below CSS code requires Boostrap CSS 4 (used by default in Humm PHP)
+ * and can be used also for Bootstrap themes like of https://bootswatch.com
+ */
+
+::selection
+{
+  color: var(--white, highlighttext, white); 
+  background-color: var(--blue, highlight, blue); 
+}
+
+::-moz-selection
+{
+  color: var(--white, highlighttext, white); 
+  background-color: var(--blue, highlight, blue); 
+}
+
+option:checked
+{
+  color: var(--white, highlighttext, white); 
+  background: linear-gradient(var(--blue, highlight, blue), var(--blue, highlight, blue));
+}
+
+select[multiple]:focus option:checked 
+{
+  color: var(--white, highlighttext, white); 
+  background: linear-gradient(var(--blue, highlight, blue), var(--blue, highlight, blue));
+}
