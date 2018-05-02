@@ -441,7 +441,7 @@ class Database extends Unclonable
    */
   public static function errorMessage()
   {
-    $errorInfo = self::$pdo->errorInfo()[2];
+    $errorInfo = self::$pdo->errorInfo();
     return isset($errorInfo[2]) ? $errorInfo[2] : null;
   }
 
