@@ -8,15 +8,15 @@
  * @author D. Esperalta <info@davidesperalta.com>
  * @link https://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2018 Humm PHP - David Esperalta
+ * @copyright (C)2019 Humm PHP - David Esperalta
  */
 
 /**
  * Define the version of Humm PHP.
  */
-\define('HUMM_VERSION_STRING', '2018.11 (09/12/2018)');
+\define('HUMM_VERSION_STRING', '2019.1 (01/01/2019)');
 
 /**
  * Define the release date of Humm PHP.
  */
-\define('HUMM_VERSION_RELEASE', '09/12/2018');
+\define('HUMM_VERSION_RELEASE', '01/01/2019');
