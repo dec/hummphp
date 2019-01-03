@@ -45,6 +45,7 @@ class MOFileParser extends Unclonable
       self::fillMessages($fileData, $fileHeader, $textDomain, $messages);
       if (isset($messages[$textDomain]) &&
        (\count($messages[$textDomain]) > 0)) {
+         $result = true;
          $textFileHeader = $messages[$textDomain][''][1][0];
          $pluralFunc = self::getPluralFunc($textFileHeader);
       }

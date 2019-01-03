@@ -14,7 +14,7 @@
  * @author D. Esperalta <info@davidesperalta.com>
  * @link https://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2019 Humm PHP - David Esperalta
+ * @copyright (C)2018 Humm PHP - David Esperalta
  */
 
 namespace Humm\System\Classes;
@@ -179,6 +179,7 @@ class Languages extends Unclonable
     if (self::languageExists($langCode)) {
       $result = ClientSession::setVar(ClientSession::HUMM_LANGUAGE, $langCode);
     }
+    self::reset();
     return $result;
   }
 
@@ -298,4 +299,19 @@ class Languages extends Unclonable
     }
     return $result;
   }
+
+  /**
+   * This method is intended to be called by self::setCurrentLanguage(),
+   * in order to properly apply the language change.
+   * 
+   * @static
+   */  
+  private static function reset()
+  {
+    self::$moFiles = array();
+    self::$messages = array();
+    self::loadTextDomain(FilePaths::siteTextDomain());
+    self::loadTextDomain(FilePaths::sitesSharedTextDomain());
+    self::loadTextDomain(FilePaths::systemTextDomain());
+  }  
 }
