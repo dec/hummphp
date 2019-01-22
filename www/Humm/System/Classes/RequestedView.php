@@ -9,7 +9,7 @@
  * @author D. Esperalta <info@davidesperalta.com>
  * @link https://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2019 Humm PHP - David Esperalta
+ * @copyright (C)2018 Humm PHP - David Esperalta
  */
 
 namespace Humm\System\Classes;
@@ -62,14 +62,11 @@ class RequestedView extends Unclonable
      * view and optional class ("AdminUserProfileView") to be loaded.
      */
     $view = self::getDeepView($template);
-    
+
     // Check the existence of a possible "deep" view
     if (!self::isMainView($view) || !$template->viewFileExists($view)) {
-      
-      // Fallback to the Humm PHP system's home view.
-      if ($view === '') {
-        $view = self::SYSTEM_HOME_VIEW; 
-      }
+
+      $arg = \str_replace(array('-', '_'), '', UrlArguments::get(0));
       
       /**
        * The below code is for backward compatibility: as is mentioned above,
@@ -79,16 +76,21 @@ class RequestedView extends Unclonable
        * 
        * So the below code try to take the view from the first URL argument.
        */
-      if (self::isMainView(UrlArguments::get(0)) &&
-       $template->viewFileExists(UrlArguments::get(0))) {
+      if (self::isMainView($arg) &&
+       $template->viewFileExists($arg)) {
         
-        $view = UrlArguments::get(0);  
+        $view = $arg;  
         
       } else if (self::isMainView(self::SITE_HOME_VIEW) &&
        $template->viewFileExists(self::SITE_HOME_VIEW)) {
         
         $view = self::SITE_HOME_VIEW;
       }
+    }
+
+    // Fallback to the Humm PHP system's home view.
+    if ($view === '') {
+      $view = self::SYSTEM_HOME_VIEW; 
     }
     
     return \ucfirst($view);
@@ -128,6 +130,7 @@ class RequestedView extends Unclonable
        * 
        */
       if ((\substr($arg, 0, 1) !== '?') && (\substr($arg, 0, 1) !== '&')) {
+        $arg = \str_replace(array('-', '_'), '', $arg);
         $view .= \ucfirst($arg);
       }
       
@@ -175,7 +178,6 @@ class RequestedView extends Unclonable
     
     return $result;    
   }
-
 
   /**
    * Find if a view is a main view or not.
