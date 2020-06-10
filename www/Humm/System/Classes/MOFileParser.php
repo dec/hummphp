@@ -9,7 +9,7 @@
  * @author D. Esperalta <info@davidesperalta.com>
  * @link https://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2019 Humm PHP - David Esperalta
+ * @copyright (C)2018 Humm PHP - David Esperalta
  */
 
 namespace Humm\System\Classes;
@@ -199,11 +199,17 @@ class MOFileParser extends Unclonable
   private static function getPluralFunc($textFileHeader)
   {
     $matches = array();
+    
     $result = self::defaultPluralFunc();
+    
     if (self::matchPluralFunc($textFileHeader, $matches)) {
       $body = self::getPluralFuncBody($matches);
-      $result = \create_function('$n', $body);
+      
+      $result = function ($n) use ($body) {
+        return eval($body);
+      };
     }
+    
     return $result;
   }
 
@@ -215,13 +221,11 @@ class MOFileParser extends Unclonable
    */
   private static function defaultPluralFunc()
   {
-    return \create_function
-    (
-      '$n',
-      '$nplurals=2;
-      $plural = ($n == 1 ? 0 : 1);
-      return ($plural >= $nplurals ? $nplurals - 1 : $plural);'
-    );
+    return function ($n) {
+      $nplurals = 2;
+      $plural = ((int)$n === 1 ? 0 : 1);
+      return ($plural >= $nplurals ? $nplurals - 1 : $plural);     
+    };
   }
 
   /**
@@ -256,12 +260,15 @@ class MOFileParser extends Unclonable
    */
   private static function fixPluralFuncBody($body)
   {
-    $p = 0; $res = ''; $body .= ';';
+    $p = 0; 
+    $res = ''; 
+    $body .= ';';
 
     for ($i = 0; $i < \strlen($body); $i++) {
       switch ($body[$i]) {
         case '?':
-          $res.= ' ? ('; $p++;
+          $res.= ' ? ('; 
+          $p++;
           break;
         case ':':
           $res.= ') : (';
@@ -275,6 +282,7 @@ class MOFileParser extends Unclonable
           break;
       }
     }
+ 
     return $res;
   }
 }
