@@ -17,8 +17,12 @@
  */
 \spl_autoload_register(function($class)
 {
-  require __DIR__.\DIRECTORY_SEPARATOR.\str_replace(
-         '\\', \DIRECTORY_SEPARATOR, $class).'.php';
+  $class_file_path = __DIR__.\DIRECTORY_SEPARATOR.
+   \str_replace('\\', \DIRECTORY_SEPARATOR, $class).'.php';  
+    
+  if (file_exists($class_file_path)) {
+    require_once $class_file_path;      
+  }  
 });
 
  /**
