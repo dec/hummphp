@@ -7,8 +7,8 @@
  * view and can interact with such view providing view HTML
  * template variables and so on.
  *
- * @author D. Esperalta <info@davidesperalta.com>
- * @link https://www.davidesperalta.com/
+ * @author D. Esperalta <info@decsoftutils.com>
+ * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2019 Humm PHP - David Esperalta
  */
@@ -24,7 +24,7 @@ namespace Humm\System\Classes;
  */
 class SystemSharedView extends HummView
 {
-  const HUMM_SITE_URL = 'https://www.davidesperalta.com/?lang=%s';
+  const HUMM_SITE_URL = 'https://www.decsoftutils.com/?lang=%s';
 
   /**
    * Construct a SystemSharedView object.

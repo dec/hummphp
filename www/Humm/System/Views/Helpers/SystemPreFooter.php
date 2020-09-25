@@ -9,7 +9,7 @@
     </div>
     <div id="copyrightNote">
      ©2020 Humm PHP - <a href="<?= $hummPhpSiteUrl ?>"
-      title="<?php e('Visit the Humm PHP website') ?>">www.davidesperalta.com</a>
+      title="<?php e('Visit the Humm PHP website') ?>">www.decsoftutils.com</a>
     </div>
    </footer>
 

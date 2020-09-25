@@ -6,8 +6,8 @@
  * This class are used by the system Languages to parse
  * text domain MO files and extract their string messages.
  *
- * @author D. Esperalta <info@davidesperalta.com>
- * @link https://www.davidesperalta.com/
+ * @author D. Esperalta <info@decsoftutils.com>
+ * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2018 Humm PHP - David Esperalta
  */

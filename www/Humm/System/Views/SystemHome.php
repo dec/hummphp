@@ -14,7 +14,7 @@
  </p>
  <p>
   <a href="<?= $hummPhpSiteUrl ?>"
-   title="<?php e('Visit the Humm PHP website') ?>">http://www.davidesperalta.com</a>
+   title="<?php e('Visit the Humm PHP website') ?>">http://www.decsoftutils.com</a>
  </p>
 </section>
 

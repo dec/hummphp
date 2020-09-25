@@ -6,8 +6,8 @@
  * This class is the responsible to find the requested
  * site view and offer information about it.
  *
- * @author D. Esperalta <info@davidesperalta.com>
- * @link https://www.davidesperalta.com/
+ * @author D. Esperalta <info@decsoftutils.com>
+ * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2018 Humm PHP - David Esperalta
  */

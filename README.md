@@ -70,9 +70,9 @@ it for your websites. Use this website menu to navigate over the diferent
 sections. And finally feel free to contact with me with comments, error
 reports, support questions, etc.
 
-Just write me an email to: [info@davidesperalta.com]
+Just write me an email to: [info@decsoftutils.com]
 
 
-[Humm PHP]:http://www.davidesperalta.com
-[Humm PHP website]:http://www.davidesperalta.com
-[info@davidesperalta.com]:mailto:info@davidesperalta.com
+[Humm PHP]:http://www.decsoftutils.com
+[Humm PHP website]:http://www.decsoftutils.com
+[info@decsoftutils.com]:mailto:info@decsoftutils.com

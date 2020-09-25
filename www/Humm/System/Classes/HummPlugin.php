@@ -6,8 +6,8 @@
  * Every system or site plugin class must derived from
  * this in order to be considerer a valid Humm PHP plugin.
  *
- * @author D. Esperalta <info@davidesperalta.com>
- * @link https://www.davidesperalta.com/
+ * @author D. Esperalta <info@decsoftutils.com>
+ * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2019 Humm PHP - David Esperalta
  */

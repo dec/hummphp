@@ -6,8 +6,8 @@
  * Humm PHP use this class in their unique entry
  * point (index.php) to prepare the user response.
  *
- * @author D. Esperalta <info@davidesperalta.com>
- * @link https://www.davidesperalta.com/
+ * @author D. Esperalta <info@decsoftutils.com>
+ * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2019 Humm PHP - David Esperalta
  */

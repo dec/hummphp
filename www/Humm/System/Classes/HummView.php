@@ -6,8 +6,8 @@
  * The HummView system class is intented to be inherited
  * by all system and user sites views classes.
  *
- * @author D. Esperalta <info@davidesperalta.com>
- * @link https://www.davidesperalta.com/
+ * @author D. Esperalta <info@decsoftutils.com>
+ * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2019 Humm PHP - David Esperalta
  */

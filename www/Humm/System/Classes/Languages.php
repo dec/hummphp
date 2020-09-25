@@ -11,8 +11,8 @@
  * are implemented into the ShortFunctions.php file, which
  * is required by this class whenn initialized.
  *
- * @author D. Esperalta <info@davidesperalta.com>
- * @link https://www.davidesperalta.com/
+ * @author D. Esperalta <info@decsoftutils.com>
+ * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C)2018 Humm PHP - David Esperalta
  */
