@@ -132,7 +132,7 @@ class ErrorHandler extends Unclonable
     $template = new HtmlTemplate();
     self::setViewTemplatePaths($template);
     self::setDefaultTemplateVars($template);
-    if (ServerInfo::isLocal() || \HUMM_SHOW_ERRORS) {
+    if (\HUMM_SHOW_ERRORS) {
       $template->displayView(self::ERROR_VIEW);
     }
   }
