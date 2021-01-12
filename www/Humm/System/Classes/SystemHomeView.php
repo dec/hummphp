@@ -10,7 +10,7 @@
  * @author D. Esperalta <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2019 Humm PHP - David Esperalta
+ * @copyright (C)2021 Humm PHP - David Esperalta
  */
 
 namespace Humm\System\Classes;
