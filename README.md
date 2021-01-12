@@ -59,20 +59,3 @@ Download or write your own plugins to enhance Humm PHP.
 ### And many, many more... ###
 
 Discover how Humm PHP can be useful to you! Download now!
-
-
-Enjoy Humm PHP!
----------------
-
-In the [Humm PHP website] you can found the latest [Humm PHP] published
-releases. Also you can learn how [Humm PHP] works and how to use and enhance
-it for your websites. Use this website menu to navigate over the diferent
-sections. And finally feel free to contact with me with comments, error
-reports, support questions, etc.
-
-Just write me an email to: [info@decsoftutils.com]
-
-
-[Humm PHP]:http://www.decsoftutils.com
-[Humm PHP website]:http://www.decsoftutils.com
-[info@decsoftutils.com]:mailto:info@decsoftutils.com
