@@ -7,7 +7,7 @@
   <div class="container">
    <div class="header clearfix">
     <nav>
-     <ul class="nav nav-pills float-right">
+     <ul class="nav nav-pills float-end">
       <li class="nav-item">
        <a class="nav-link" href="<?= $siteUrl ?>?home">Home</a>
       </li>
