@@ -598,7 +598,7 @@ class Database extends Unclonable
    */
   public function query($sql, $params = array(), $class = '')
   {
-    return self::$pdo->query($sql, $params, $class);
+    return self::$pdo->_query($sql, $params, $class);
   }
 
   /**

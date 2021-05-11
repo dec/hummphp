@@ -91,7 +91,7 @@ class PDOExtended extends \PDO
   public function getValue($sql, $params = array())
   {
     $result = null;
-    if ($this->query($sql, $params)) {
+    if ($this->_query($sql, $params)) {
       $fetch = $this->statement->fetch(parent::FETCH_NUM);
       if (isset($fetch[0])) {
         $result = $fetch[0];
@@ -124,7 +124,7 @@ class PDOExtended extends \PDO
   public function getPair($sql, $params = array())
   {
     $result = array();
-    if ($this->query($sql, $params)) {
+    if ($this->_query($sql, $params)) {
       $results = $this->statement->fetchAll(parent::FETCH_NUM);
       foreach ($results as $row) {
         $result[$row[0]] = $row[1];
@@ -152,7 +152,7 @@ class PDOExtended extends \PDO
   public function getRow($sql, $params = array(), $class = '')
   {
     $result = null;
-    if ($this->query($sql, $params, $class)) {
+    if ($this->_query($sql, $params, $class)) {
       $result = $this->statement->fetch();
     }
     return $result;
@@ -187,7 +187,7 @@ class PDOExtended extends \PDO
   public function getColumn($sql, $params = array())
   {
     $result = null;
-    if ($this->query($sql, $params)) {
+    if ($this->_query($sql, $params)) {
       $result = $this->statement->fetchAll(parent::FETCH_COLUMN);
     }
     return $result;
@@ -223,7 +223,7 @@ class PDOExtended extends \PDO
   public function getResults($sql, $params = array(), $class = '')
   {
     $result = null;
-    if ($this->query($sql, $params, $class)) {
+    if ($this->_query($sql, $params, $class)) {
       $result = $this->statement->fetchAll();
     }
     return $result;
@@ -298,7 +298,7 @@ class PDOExtended extends \PDO
     $sqlValues = \trim($preValues, ',');
     $sqlFields = \trim($preFields, ',');
 
-    $result = $this->query
+    $result = $this->_query
     (
       'INSERT INTO '.$table.' ('.$sqlFields.') VALUES ('.$sqlValues.')',
       $params
@@ -343,7 +343,7 @@ class PDOExtended extends \PDO
      $sqlKeys = $preKeys;
      $sqlValues = \trim($preValues, ',');
 
-     $results = $this->query
+     $results = $this->_query
      (
        \sprintf('UPDATE %s SET %s WHERE (1 = 1) %s',
         $table, $sqlValues, $sqlKeys),
@@ -381,7 +381,7 @@ class PDOExtended extends \PDO
       $params[] = $value;
     }
 
-    $result = $this->query
+    $result = $this->_query
     (
       \sprintf('DELETE FROM %s WHERE (1 = 1) %s', $table, $sqlKeys),
       $params
@@ -510,7 +510,7 @@ class PDOExtended extends \PDO
    * @param string $class Class name to fetch the results.
    * @return \PDOStatement|boolean object instance or False on failure.
    */
-  public function query($sql, $params = array(), $class = '')
+  public function _query($sql, $params = array(), $class = '')
   {
     $result = false;
     if ($this->statement instanceof \PDOStatement) {
