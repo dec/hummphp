@@ -6,10 +6,10 @@
  * This class are used by the system Languages to parse
  * text domain MO files and extract their string messages.
  *
- * @author D. Esperalta <info@decsoftutils.com>
- * @link https://www.decsoftutils.com/
+ * @author D. Esperalta <info@davidesperalta.com>
+ * @link https://www.davidesperalta.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2021 Humm PHP - David Esperalta
+ * @copyright (C)2018 Humm PHP - David Esperalta
  */
 
 namespace Humm\System\Classes;
@@ -39,7 +39,7 @@ class MOFileParser extends Unclonable
    $filePath, $textDomain, &$messages, &$pluralFunc)
   {
     $result = false;
-    $fileData = self::getFileData($filePath);
+    $fileData = self::getFileData($filePath);    
     $fileHeader = self::getFileHeader($filePath, $fileData);
     if (($fileData !== null) && ($fileHeader !== null)) {
       self::fillMessages($fileData, $fileHeader, $textDomain, $messages);
@@ -71,8 +71,7 @@ class MOFileParser extends Unclonable
       $fileData = \fread($fileHandle, \filesize($filePath));
       \fclose($fileHandle);
       $strLen = \strlen($fileData);
-      $revision = \substr($fileData, 4, 4);
-      if (($revision == 0) && ($strLen >= 20)) {
+      if ($strLen >= 20) {
         $result = $fileData;
       }
     }
