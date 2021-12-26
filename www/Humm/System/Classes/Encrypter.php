@@ -7,10 +7,10 @@
  * The code is enterely based in the "Simple PHP encrypt and 
  * decrypt" article by Naveen Nayak - https://goo.gl/41sx8s
  *
- * @author D. Esperalta <info@decsoftutils.com>
+ * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2021 Humm PHP - David Esperalta
+ * @copyright (C)2022 Humm PHP - DecSoft Utils
  */
 
 namespace Humm\System\Classes;

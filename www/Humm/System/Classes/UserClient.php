@@ -6,10 +6,10 @@
  * This class is intended to offer a convenient way
  * to get information about the current user client.
  *
- * @author D. Esperalta <info@decsoftutils.com>
+ * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2021 Humm PHP - David Esperalta
+ * @copyright (C)2022 Humm PHP - DecSoft Utils
  */
 
 namespace Humm\System\Classes;

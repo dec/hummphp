@@ -11,10 +11,10 @@
  * are implemented into the ShortFunctions.php file, which
  * is required by this class whenn initialized.
  *
- * @author D. Esperalta <info@decsoftutils.com>
+ * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2021 Humm PHP - David Esperalta
+ * @copyright (C)2022 Humm PHP - DecSoft Utils
  */
 
 namespace Humm\System\Classes;

@@ -6,10 +6,10 @@
  * Every user request to a Humm PHP managed site
  * end here and then Humm initiates the boot strap.
  *
- * @author D. Esperalta <info@decsoftutils.com>
+ * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2021 Humm PHP - David Esperalta
+ * @copyright (C)2022 Humm PHP - DecSoft Utils
  */
 
 /**

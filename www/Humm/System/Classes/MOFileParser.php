@@ -6,10 +6,10 @@
  * This class are used by the system Languages to parse
  * text domain MO files and extract their string messages.
  *
- * @author D. Esperalta <info@decsoftutils.com>
+ * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2021 Humm PHP - David Esperalta
+ * @copyright (C)2022 Humm PHP - DecSoft Utils
  */
 
 namespace Humm\System\Classes;
