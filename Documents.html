@@ -664,7 +664,7 @@ Hello world!
             Instead of write hard strings into your site views, you can use the appropriate i18n function in someway like this:
           </p>
           <pre>
-<?php e("e('Hello world!');") ?>
+e('Hello world!')
    </pre>
           <p>
             Just doing this your "Hello world!" are ready to be translated. Your site PO files scan the code for this kind of strings and allows you to provide the appropriate translation. Then <strong>Humm PHP</strong> automatically load the neccesary MO file (compiled PO file) in order to make their messages availables and therefore use it for strings tranlations purposes. I carefully recommend you use the short i18n functions instead of hard strings in your sites.
