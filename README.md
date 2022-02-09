@@ -1,10 +1,10 @@
 Humm PHP
 --------
 
-Many thanks for your interest in [Humm PHP]. This is a PHP framework designed
+Many thanks for your interest in Humm PHP. This is a PHP framework designed
 to be fast, server independent and friendly for developers and final users.
-You can use [Humm PHP] to setup a website in seconds (literally the seconds
-you can expend uploading the Humm PHP files into your web server). [Humm PHP]
+You can use Humm PHP to setup a website in seconds (literally the seconds
+you can expend uploading the Humm PHP files into your web server). Humm PHP
 run out of the box and do not need any configuration nor installation process.
 
 
