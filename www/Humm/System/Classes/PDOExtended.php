@@ -502,6 +502,20 @@ class PDOExtended extends \PDO
   }
 
   /**
+   * Closes the cursor, enabling the statement to be executed again.
+   *
+   * @link https://www.php.net/manual/en/pdostatement.closecursor
+   * @return boolean True on success, False on failure
+   */  
+  public function closeCursor()
+  {
+    if ($this->statement instanceof \PDOStatement) {
+      return $this->statement->closeCursor();
+    }    
+    return true;
+  }
+
+  /**
    * Executes an SQL statement, returning a result set.
    *
    * @link http://www.php.net/manual/en/pdo.query.php
