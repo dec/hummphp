@@ -66,7 +66,7 @@ class RequestedView extends Unclonable
     // Check the existence of a possible "deep" view
     if (!self::isMainView($view) || !$template->viewFileExists($view)) {
 
-      $arg = \str_replace(array('-', '_'), '', UrlArguments::get(0));
+      $arg = \str_replace(array('-', '_'), '', UrlArguments::get(0) || '');
       
       /**
        * The below code is for backward compatibility: as is mentioned above,

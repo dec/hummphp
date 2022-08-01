@@ -483,7 +483,7 @@ class PDOExtended extends \PDO
    * @param string $sql The SQL statement to prepare and execute.
    * @return int Number of affected rows or zero if not affected.
    */
-  public function exec($sql)
+  public function exec($sql) : int
   {
     return parent::exec($this->translateSQL($sql));
   }
@@ -496,7 +496,7 @@ class PDOExtended extends \PDO
    * @param array $options Driver specific options.
    * @return \PDOStatement object instance.
    */
-  public function prepare($sql, $options = array())
+  public function prepare($sql, $options = array()) : \PDOStatement
   {
     return parent::prepare($this->translateSQL($sql), $options);
   }
