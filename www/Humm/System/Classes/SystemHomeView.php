@@ -33,7 +33,7 @@ class SystemHomeView extends SystemSharedView
   {
     parent::__construct($template);
     // Disallow direct user requests to this view URL
-    if (\strtolower(UrlArguments::get(0)) ==
+    if (\strtolower(UrlArguments::get(0) || '') ==
      \strtolower(RequestedView::SYSTEM_HOME_VIEW)) {
        UserClient::redirectToHome();
     }

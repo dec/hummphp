@@ -2,7 +2,7 @@
 <?php if (!$this) { exit; } ?>
 
  <footer class="footer text-center">
-  <p>&copy; <?= \date('Y') ?> DecSoft's Humm PHP - <a href="https://www.decsoftutils.com" title="www.decsoftutils.com">www.decsoftutils.com</a></p>
+  <p>&copy; <?= \date('Y') ?> DecSoft Humm PHP - <a href="https://www.decsoftutils.com" title="www.decsoftutils.com">www.decsoftutils.com</a></p>
  </footer>
 
 </div> <!-- /container -->

@@ -3,11 +3,12 @@
 
 <?php $this->displayView('SystemPreHeader') ?>
  <title><?php e('Humm PHP - Error') ?></title>
- <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>Errors.css" media="all" />
+ <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>SystemError.css" media="all" />
 <?php $this->displayView('SystemPosHeader') ?>
 
-<section>
- <h1>
+<div class="container text-center alert alert-danger mt-5">
+  
+ <h1 class="display-5">
   <?php e('Humm PHP error') ?>
  </h1>
 
@@ -15,37 +16,46 @@
 
   <?php foreach($errors as $errorInfo) : ?>
 
-   <ul class="errorList">
-    <li>
+   <ul class="list-group mt-5 text-start">
+    <li class="list-group-item">
      <strong><?php e('Error:') ?></strong>
       <?= $errorInfo->errorCodeStr ?>
     </li>
-    <li>
+    <li class="list-group-item">
      <strong><?php e('Message:') ?></strong>
       <?= $errorInfo->message ?>
     </li>
-    <li>
+    <li class="list-group-item">
      <strong><?php e('File path.:') ?></strong>
       <small><?= $errorInfo->file ?></small>
     </li>
-    <li>
+    <li class="list-group-item">
      <strong><?php e('Line num.:') ?></strong>
       <?= $errorInfo->lineNum ?>
     </li>
    </ul>
-   <!-- /errorList -->
 
    <?php endforeach; ?>
 
  <?php else : ?>
 
-  <p>
+  <p class="lead">
    <?php e('Sorry, an error occur, but Humm PHP is configured to hide more information.') ?>
   </p>
 
- <?php endif; ?>
+ <?php endif; ?>  
+ 
+ <footer class="mt-5">
+  <div>
+   <a href="<?= $hummPhpSiteUrl ?>" class="alert-link text-decoration-none" title="<?php e('Visit the Humm PHP website') ?>"><?= $hummPhpSiteUrl ?></a>
+  </div>      
+  <div>
+   ©<?= \date('Y') ?> Humm PHP <?= $hummVersion ?>
+  </div>
+ </footer> 
   
-</section>
+</div>
+<!-- /container --> 
 
 <?php $this->displayView('SystemPreFooter') ?>
 <?php $this->displayView('SystemPosFooter') ?>
