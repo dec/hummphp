@@ -310,6 +310,21 @@ http://www.yoursite.com/?search
           <p>
             The first and second URLs correspond with the "Home" view. The second correspond with a "Contact" view and the third correspond with a "Search" view. The system is responsible to require the appropriate view per user requests and your responsibility is to provided the appropriate views files and optionally views associated PHP classes.
           </p>
+		  
+		  <p>
+		   If you use this kind of URLs, that is, if you do not use the "rewrite" way (see below) then you must take care if you want to add more arguments into the URls. The way to add more arguments into the above URLs can be done like below:
+		  </p>
+		  
+          <pre>
+
+http://www.yoursite.com/?home&myvariable=myvalue&another=value
+
+   </pre>		  
+   
+          <p>
+		   Doing that <strong>Humm PHP</strong> can continue recognizing the right view (home in this case) but also you have access to the "myvariable" and the "another" variable values.
+		  </p>
+		  
           <div class="toPageTop">
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
           </div>
