@@ -26,5 +26,7 @@ class SharedView extends HummView
   public function __construct(HtmlTemplate $template)
   {
     parent::__construct($template);
+    
+    $this->template->copyrightYear = \date('Y');
   }
 }
