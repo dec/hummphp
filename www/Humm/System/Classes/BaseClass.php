@@ -70,7 +70,7 @@ abstract class BaseClass extends \StdClass
    * Retrieve the directory URL for the specified class.
    *
    * @static
-   * @param type $class Qualified class name.
+   * @param string $class Qualified class name.
    * @return string The class directory path.
    */
   private static function doGetClassDirUrl($class)
@@ -86,7 +86,7 @@ abstract class BaseClass extends \StdClass
    * Retrieve the directory path for the specified class.
    *
    * @static
-   * @param type $class Qualified class name.
+   * @param string $class Qualified class name.
    * @return string The class directory path.
    */
   private static function doGetClassDirPath($class)
