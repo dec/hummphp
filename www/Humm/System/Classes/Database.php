@@ -247,7 +247,7 @@ class Database extends Unclonable
    * @param string $sql SQL statement to be prepared an executed.
    * @param array $params SQL statement arguments.
    * @param string $class Optional class name to fetch the results.
-   * @return array Specified record fields.
+   * @return array|object|null Specified record fields.
    */
   public static function getRow($sql, $params = array(), $class = '')
   {
