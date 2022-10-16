@@ -278,20 +278,19 @@ class LanguagesMap extends Unclonable
    * Find if a MO file exists or not.
    *
    * @static
-   * @param SplFileInfo $fileInfo File information.
+   * @param \SplFileInfo $fileInfo File information.
    * @return boolean True if the MO file exists, False if not
    */
   private static function moFileExists(\SplFileInfo $fileInfo)
   {
-    return !$fileInfo->isDot() && $fileInfo->isDir() &&
-     \file_exists(self::getMOFilePath($fileInfo));
+    return $fileInfo->isDir() && \file_exists(self::getMOFilePath($fileInfo));
   }
 
   /**
    * Get an MO file absolute path.
    *
    * @static
-   * @param SplFileInfo $fileInfo File information.
+   * @param \SplFileInfo $fileInfo File information.
    * @return string Absolute MO file path.
    */
   private static function getMOFilePath(\SplFileInfo $fileInfo)
