@@ -160,7 +160,7 @@ class UrlArguments extends Unclonable
     if ($normalizedUri === $sanitizedRoot) {
       $normalizedUri = \str_replace(\dirname(UserInput::server('SCRIPT_NAME')), '', ServerInfo::uri());
     // The below one is the path works in Windows and Linux, including subdomains in both systems
-    } else if (($normalizedUri !== '') && ($normalizedUri !== '/')) {     
+    } else if (($normalizedUri !== '') && ($normalizedUri !== '/')) {
       $normalizedUri = \str_replace($normalizedUri, '', ServerInfo::uri());
     // This fallback has been tested too in Windows and Linux, including subdomains, but
     // do not work if $normalizedUri and $sanitizedRoot are equals

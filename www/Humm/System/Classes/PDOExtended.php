@@ -506,12 +506,12 @@ class PDOExtended extends \PDO
    *
    * @link https://www.php.net/manual/en/pdostatement.closecursor
    * @return boolean True on success, False on failure
-   */  
+   */
   public function closeCursor()
   {
     if ($this->statement instanceof \PDOStatement) {
       return $this->statement->closeCursor();
-    }    
+    }
     return true;
   }
 

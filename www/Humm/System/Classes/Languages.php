@@ -303,9 +303,9 @@ class Languages extends Unclonable
   /**
    * This method is intended to be called by self::setCurrentLanguage(),
    * in order to properly apply the language change.
-   * 
+   *
    * @static
-   */  
+   */
   private static function reset()
   {
     self::$moFiles = array();
@@ -313,5 +313,5 @@ class Languages extends Unclonable
     self::loadTextDomain(FilePaths::siteTextDomain());
     self::loadTextDomain(FilePaths::sitesSharedTextDomain());
     self::loadTextDomain(FilePaths::systemTextDomain());
-  }  
+  }
 }

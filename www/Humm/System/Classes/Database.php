@@ -585,17 +585,17 @@ class Database extends Unclonable
   {
     return self::$pdo->prepare($sql, $options);
   }
-  
+
   /**
    * Closes the cursor, enabling the statement to be executed again.
-   * 
+   *
    * @static
    * @link https://www.php.net/manual/en/pdostatement.closecursor
    * @return boolean True on success, False on failure
    */
   public static function closeCursor()
   {
-    return self::$pdo->closeCursor();  
+    return self::$pdo->closeCursor();
   }
 
   /**

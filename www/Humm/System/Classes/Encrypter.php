@@ -4,7 +4,7 @@
  * This file implement the Encrypter system class.
  *
  * Humm PHP offers this class to be useful in the sites.
- * The code is enterely based in the "Simple PHP encrypt and 
+ * The code is enterely based in the "Simple PHP encrypt and
  * decrypt" article by Naveen Nayak - https://goo.gl/41sx8s
  *
  * @author DecSoft Utils <info@decsoftutils.com>
@@ -18,7 +18,7 @@ namespace Humm\System\Classes;
 /**
  * System Encrypter class implementation.
  *
- * This is another useful class to be used in the 
+ * This is another useful class to be used in the
  * Humm PHP managed sites.
  */
 class Encrypter extends Unclonable
@@ -41,19 +41,19 @@ class Encrypter extends Unclonable
     (
       \openssl_encrypt
       (
-        $text, 
-        'AES-256-CBC', 
-        \hash('sha256', $secretKey), 
-        0, 
+        $text,
+        'AES-256-CBC',
+        \hash('sha256', $secretKey),
+        0,
         \substr(\hash('sha256', $secretIV), 0, 16)
       )
     );
   }
-  
+
   /**
    * Decrypt the specified previously encrypted string.
    *
-   * This method decrypt the specified previously encrypted text 
+   * This method decrypt the specified previously encrypted text
    * string using the also provided "secret key" and "secret IV".
    *
    * @static
@@ -66,11 +66,11 @@ class Encrypter extends Unclonable
   {
     return \openssl_decrypt
     (
-      \base64_decode($text), 
-      'AES-256-CBC', 
-      \hash('sha256', $secretKey), 
-      0, 
+      \base64_decode($text),
+      'AES-256-CBC',
+      \hash('sha256', $secretKey),
+      0,
       \substr(\hash('sha256', $secretIV), 0, 16)
     );
-  }  
+  }
 }

@@ -53,10 +53,10 @@ class RequestedView extends Unclonable
     /**
      * Now Humm PHP can support "deep" views from the URL, something
      * like in this one: http://www.server.com/admin/user/profile
-     * 
+     *
      * Previously this change Humm PHP determine that the above URL
      * end into the "admin" view and optional class to be loaded.
-     * 
+     *
      * The below code allows Humm PHP to support "deep" views and
      * optional classes, so the above URL end into the "AdminUserProfile"
      * view and optional class ("AdminUserProfileView") to be loaded.
@@ -67,116 +67,116 @@ class RequestedView extends Unclonable
     if (!self::isMainView($view) || !$template->viewFileExists($view)) {
 
       $arg = \str_replace(array('-', '_'), '', UrlArguments::get(0) || '');
-      
+
       /**
        * The below code is for backward compatibility: as is mentioned above,
        * previously to support "deep" views, Humm PHP only support one main
        * view, which corresponde with the first URL argument, in the above
        * URL sample the "admin" view.
-       * 
+       *
        * So the below code try to take the view from the first URL argument.
        */
       if (self::isMainView($arg) &&
        $template->viewFileExists($arg)) {
-        
-        $view = $arg;  
-        
+
+        $view = $arg;
+
       } else if (self::isMainView(self::SITE_HOME_VIEW) &&
        $template->viewFileExists(self::SITE_HOME_VIEW)) {
-        
+
         $view = self::SITE_HOME_VIEW;
       }
     }
 
     // Fallback to the Humm PHP system's home view.
     if ($view === '') {
-      $view = self::SYSTEM_HOME_VIEW; 
+      $view = self::SYSTEM_HOME_VIEW;
     }
-    
+
     return \ucfirst($view);
   }
-  
+
   /**
    * Try to find a possible deep view from the URL.
-   * 
+   *
    * @static
    * @param HtmlTemplate $template The current template
    * @return string The possible deep view name
    */
   private static function getDeepView(HtmlTemplate $template)
   {
-    $view = ''; 
+    $view = '';
     $result = '';
     $views = array();
-    $args = UrlArguments::getAll();    
-    
+    $args = UrlArguments::getAll();
+
     foreach ($args as $arg) {
       /**
-       * We continue supporting URLs which don't use the Apache's rewrite 
+       * We continue supporting URLs which don't use the Apache's rewrite
        * module, for example (other servers provides something similar).
-       * 
+       *
        * Then the below URLs works if we use the Apache rewrite module:
-       * 
+       *
        * http://www.server.com/admin/user/profile
        * http://www.server.com/admin/user/profile/?var=value
-       * 
+       *
        * And this other URL also works as expected without rewrite module:
-       * 
+       *
        * http://www.server.com/?admin/user/profile
-       * 
+       *
        * Note that this other URL also works as expected:
-       * 
+       *
        * http://www.server.com/?admin/user/profile/&var=value
-       * 
+       *
        */
       if ((\substr($arg, 0, 1) !== '?') && (\substr($arg, 0, 1) !== '&')) {
         $arg = \str_replace(array('-', '_'), '', $arg);
         $view .= \ucfirst($arg);
       }
-      
+
       if (!\in_array($view, $views)) {
         $views[] = $view;
       }
     }
-    
+
     /**
      * We must return here the first existing view according with the
      * URL arguments, for example, supose the below URL:
-     * 
+     *
      * http://www.site.com/forum/section/12
-     * 
+     *
      * The above URL causes we have three possible views & views' classes:
-     * 
+     *
      * Forum
      * ForumSection
      * ForumSection12
-     * 
+     *
      * Instead of fallback to the home view if "ForumSection12" did not
      * exists, we want to use the ForumSection view.
-     * 
+     *
      * In this way we can provide more arguments into the URL and always
      * use the expected view and view's class, for example:
-     * 
+     *
      * http://www.site.com/forum/section/id/12
-     * 
+     *
      * Probably we don't wanted a view & class like "ForumSectionId", but
      * wanted to use the ForumSection view & class.
-     * 
+     *
      * We can provide an ForumSectionId if we wanted that, of course.
-     * 
+     *
      */
-    
-    $total_views = \count($views);    
-    
+
+    $total_views = \count($views);
+
     for ($i = $total_views - 1; $i >= 0; $i--) {
-      if (self::isMainView($views[$i]) && 
+      if (self::isMainView($views[$i]) &&
        $template->viewFileExists($views[$i])) {
          $result = $views[$i];
          break;
       }
     }
-    
-    return $result;    
+
+    return $result;
   }
 
   /**

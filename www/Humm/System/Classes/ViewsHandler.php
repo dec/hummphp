@@ -34,11 +34,11 @@ class ViewsHandler extends Unclonable
    * Define the base class which all other views must inherit from.
    */
   const HUMM_VIEW_BASE_CLASS = 'HummView';
-  
+
   /**
    * Define the shared view class optionally placed in the shared site.
    */
-  const SHARED_SITE_SHARED_VIEW_CLASS = 'Humm\Sites\Shared\Classes\SharedView';  
+  const SHARED_SITE_SHARED_VIEW_CLASS = 'Humm\Sites\Shared\Classes\SharedView';
 
   /**
    * Define the system classes PHP namespace.
