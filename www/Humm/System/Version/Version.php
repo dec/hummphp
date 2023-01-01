@@ -8,15 +8,15 @@
  * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2022 Humm PHP - DecSoft Utils
+ * @copyright (C) Humm PHP - DecSoft Utils
  */
 
 /**
  * Define the version of Humm PHP.
  */
-\define('HUMM_VERSION_STRING', '2022.2 (10/12/2022)');
+\define('HUMM_VERSION_STRING', '2023.1 (01/01/2023)');
 
 /**
  * Define the release date of Humm PHP.
  */
-\define('HUMM_VERSION_RELEASE', '10/12/2022');
+\define('HUMM_VERSION_RELEASE', '01/01/2023');

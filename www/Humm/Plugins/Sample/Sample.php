@@ -6,7 +6,7 @@
  * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
  * @license https://www.gnu.org/licenses/gpl.html
- * @copyright (C)2022 Humm PHP - DecSoft Utils
+ * @copyright (C) Humm PHP - DecSoft Utils
  */
 
 namespace Humm\Plugins\Sample;

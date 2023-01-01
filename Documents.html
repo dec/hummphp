@@ -1201,7 +1201,10 @@ class Sample extends HummPlugin
     </div>
     <!-- /pageContent -->
     <footer>
-     ©2022 DecSoft Utils - All rights reserved
+     ©<span id="copyright-year"></span> DecSoft Utils - All rights reserved
     </footer>
+	<script>
+	 document.getElementById('copyright-year').innerHTML = new Date().getFullYear();
+	</script>
   </body>
 </html>
