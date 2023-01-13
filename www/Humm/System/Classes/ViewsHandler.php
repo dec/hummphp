@@ -108,13 +108,8 @@ class ViewsHandler extends Unclonable
       $template->sharedSiteSharedView = new $sharedSiteSharedClass($template);
     }
 
-    // Setup into the HTML template the variables which contains
-    // the current (requested) view name and the appropiate site
-    // class object instance.
+    // Setup the current (requested) site class object instance.
     $viewName = RequestedView::getViewName($template);
-    $template->viewName = $viewName;
-    $template->lowerViewName = \strtolower($viewName);
-
     $template->siteView = self::getViewObject($viewName, $template);
 
     // Allow plugins to add stuff into the HTML template.

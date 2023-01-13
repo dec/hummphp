@@ -35,6 +35,9 @@ class TemplateVars extends Unclonable
     $template->hummVersion = \HUMM_VERSION_STRING;
     $template->hummRelease = \HUMM_VERSION_RELEASE;
 
+    $template->viewName = RequestedView::getViewName($template);
+    $template->lowerViewName = \strtolower($template->viewName);
+
     $template->requestUri = UrlPaths::current();
     $template->siteLanguage = Languages::getCurrentLanguage();
     $template->siteLanguages = Languages::getLanguages();
