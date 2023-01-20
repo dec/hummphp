@@ -14,9 +14,9 @@
 /**
  * Define the version of Humm PHP.
  */
-\define('HUMM_VERSION_STRING', '2023.1 (01/01/2023)');
+\define('HUMM_VERSION_STRING', '2023.2 (01/20/2023)');
 
 /**
  * Define the release date of Humm PHP.
  */
-\define('HUMM_VERSION_RELEASE', '01/01/2023');
+\define('HUMM_VERSION_RELEASE', '01/20/2023');
