@@ -3,11 +3,11 @@
 
 <?php $this->displayView('SystemPreHeader') ?>
  <title><?php e('Humm PHP - Error') ?></title>
- <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>SystemError.css" media="all" />
+ <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>SystemError.css" media="all" >
 <?php $this->displayView('SystemPosHeader') ?>
 
 <div class="container text-center alert alert-danger mt-5">
-  
+
  <h1 class="display-5">
   <?php e('Humm PHP error') ?>
  </h1>
@@ -43,19 +43,19 @@
    <?php e('Sorry, an error occur, but Humm PHP is configured to hide more information.') ?>
   </p>
 
- <?php endif; ?>  
- 
+ <?php endif; ?>
+
  <footer class="mt-5">
   <div>
    <a href="<?= $hummPhpSiteUrl ?>" class="alert-link text-decoration-none" title="<?php e('Visit the Humm PHP website') ?>"><?= $hummPhpSiteUrl ?></a>
-  </div>      
+  </div>
   <div>
    ©<?= \date('Y') ?> Humm PHP <?= $hummVersion ?>
   </div>
- </footer> 
-  
+ </footer>
+
 </div>
-<!-- /container --> 
+<!-- /container -->
 
 <?php $this->displayView('SystemPreFooter') ?>
 <?php $this->displayView('SystemPosFooter') ?>
