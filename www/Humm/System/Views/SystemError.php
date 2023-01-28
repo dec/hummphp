@@ -3,7 +3,7 @@
 
 <?php $this->displayView('SystemPreHeader') ?>
  <title><?php e('Humm PHP - Error') ?></title>
- <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>SystemError.css" media="all" >
+ <link rel="stylesheet" type="text/css" href="<?= $systemViewsStylesUrl ?>SystemError.css" media="all">
 <?php $this->displayView('SystemPosHeader') ?>
 
 <div class="container text-center alert alert-danger mt-5">
