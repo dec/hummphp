@@ -30,13 +30,14 @@ class UserInput extends Unclonable
    * @param string $varName Variable name to be retrieved.
    * @param mixed $defaultValue Default value to fall out.
    * @param int $filter Input filter to be applied.
+   * @param int $options Options be used.
    * @return mixed The resulted variable value or filter result.
    */
   public static function get($varName, $defaultValue = null,
-   $filter = \FILTER_DEFAULT)
+   $filter = \FILTER_DEFAULT, $options = 0)
   {
     return self::getVariable($varName,
-     \INPUT_GET, $defaultValue, $filter);
+     \INPUT_GET, $defaultValue, $filter, $options);
   }
 
   /**
@@ -46,13 +47,14 @@ class UserInput extends Unclonable
    * @param string $varName Variable name to be retrieved.
    * @param mixed $defaultValue Default value to fall out.
    * @param int $filter Input filter to be applied.
+   * @param int $options Options be used.
    * @return mixed The resulted variable value or filter result.
    */
   public static function post($varName, $defaultValue = null,
-   $filter = \FILTER_DEFAULT)
+   $filter = \FILTER_DEFAULT, $options = 0)
   {
     return self::getVariable($varName,
-     \INPUT_POST, $defaultValue, $filter);
+     \INPUT_POST, $defaultValue, $filter, $options);
   }
 
   /**
@@ -63,16 +65,17 @@ class UserInput extends Unclonable
    * @param string $varName Variable name to be retrieved.
    * @param mixed $defaultValue Default value to fall out.
    * @param int $filter Input filter to be applied.
+   * @param int $options Options be used.
    * @return mixed The resulted variable value or filter result.
    */
   public static function server($varName, $defaultValue = null,
-   $filter = \FILTER_DEFAULT)
+   $filter = \FILTER_DEFAULT, $options = 0)
   {
     $result = $defaultValue;
     // For some reason we cannot use filter_input with
     // INPUT_SERVER in certain PHP versions or servers... (?)
     if (isset($_SERVER[$varName])) {
-      $result = \filter_var($_SERVER[$varName], $filter);
+      $result = \filter_var($_SERVER[$varName], $filter, $options);
     }
     return $result;
   }
@@ -85,16 +88,17 @@ class UserInput extends Unclonable
    * @param string $varName Variable name to be retrieved.
    * @param mixed $defaultValue Default value to fall out.
    * @param int $filter Input filter to be applied.
+   * @param int $options Options be used.
    * @return mixed The resulted variable value or filter result.
    */
   public static function session($varName, $defaultValue = null,
-   $filter = \FILTER_DEFAULT)
+   $filter = \FILTER_DEFAULT, $options = 0)
   {
     // For some reason we cannot use filter_input with
     // INPUT_SESSION in certain PHP versions or servers... (?)
     $result = $defaultValue;
     if (isset($_SESSION[$varName])) {
-      $result = \filter_var($_SESSION[$varName], $filter);
+      $result = \filter_var($_SESSION[$varName], $filter, $options);
     }
     return $result;
   }
@@ -106,13 +110,14 @@ class UserInput extends Unclonable
    * @param string $varName Variable name to be retrieved.
    * @param mixed $defaultValue Default value to fall out.
    * @param int $filter Input filter to be applied.
+   * @param int $options Options be used.
    * @return mixed The resulted variable value or filter result.
    */
   public static function cookie($varName, $defaultValue = null,
-   $filter = \FILTER_DEFAULT)
+   $filter = \FILTER_DEFAULT, $options = 0)
   {
     return self::getVariable($varName,
-     \INPUT_COOKIE, $defaultValue, $filter);
+     \INPUT_COOKIE, $defaultValue, $filter, $options);
   }
 
   /**
@@ -122,14 +127,15 @@ class UserInput extends Unclonable
    * @param int $inputType One of the availables input filter.
    * @param mixed $defaultValue Default value to fall out.
    * @param int $filter Input filter to be applied.
-   *  @return mixed The resulted variable value or filter result.
+   * @param int $options Options be used.
+   * @return mixed The resulted variable value or filter result.
    */
   private static function getVariable($varName, $inputType,
-   $defaultValue = null, $filter = \FILTER_DEFAULT)
+   $defaultValue = null, $filter = \FILTER_DEFAULT, $options = 0)
   {
     $result = $defaultValue;
     if (\filter_has_var($inputType, $varName)) {
-      $result = \filter_input($inputType, $varName, $filter);
+      $result = \filter_input($inputType, $varName, $filter, $options);
     }
     return $result;
   }
