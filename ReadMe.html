@@ -455,15 +455,11 @@
       markersPopupInterval = null,
       markersPopupIntervalIsStarted = false;
 
-    function startMarkersPopupInterval() {
+    function startMarkersPopupInterval () {
 
       markersPopupIntervalIsStarted = true;
 
       markersPopupInterval = window.setInterval(function () {
-
-        if (currentMarker > markers.length) {
-          currentMarker = 0;
-        }
 
         if ($('.leaflet-popup').length > 0) {
           $('.leaflet-popup').fadeOut(function () {
@@ -474,6 +470,10 @@
         }
 
         currentMarker++;
+
+        if (currentMarker >= markers.length) {
+          currentMarker = 0;
+        }
 
       }, 4000);
     }
