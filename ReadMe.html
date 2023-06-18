@@ -146,7 +146,7 @@
       </div>
     </div>
     <div id="customers-map-container" class="mt-5">
-      <div class="text-center display-6 border rounded pt-1 pb-3 text-bg-dark">
+      <div class="text-center display-6 border rounded pt-1 pb-3 text-bg-dark" id="customers-stats">
         <div class="row">
           <div class="col-md-4 text-center">
             <span id="countries-count-container"><span id="countries-count"
@@ -452,8 +452,34 @@
     let
       markers = [],
       currentMarker = 0,
+      licensesCount = 0,
+      customersCount = 0,
+      countriesCount = 0,
       markersPopupInterval = null,
+      customerMapHasBeenShown = false,
       markersPopupIntervalIsStarted = false;
+
+      function spyIfCustomersMapIsVisible () {
+
+        let
+        element = document.querySelector('#customers-stats'),
+        position = element.getBoundingClientRect();
+
+      // checking whether partially visible
+      if(position.top < window.innerHeight && position.bottom >= 0) {
+
+        if (customerMapHasBeenShown) {
+          window.removeEventListener('scroll', spyIfCustomersMapIsVisible);
+          return true;
+        }
+
+        customerMapHasBeenShown = true;
+
+        animateCounter('licenses-count', 0, licensesCount, 5000);
+        animateCounter('customers-count', 0, customersCount, 5000);
+        animateCounter('countries-count', 0, countriesCount, 5000);
+      }
+    }
 
     function startMarkersPopupInterval () {
 
@@ -642,8 +668,6 @@
 
       $.get(SITE_URL + 'countriesmap/', function (countries) {
         let
-          licensesCount = 0,
-          customersCount = 0,
           decsoftIcon = L.icon({
             iconUrl: SITE_URL + 'Humm/Sites/Main/Views/Images/shared/DecSoft24.png',
             //shadowUrl: 'leaf-shadow.png',
@@ -653,6 +677,8 @@
             //shadowAnchor: [4, 62],  // the same for the shadow
             //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
           });
+
+        countriesCount = countries.length;
 
         for (let i in countries) {
 
@@ -683,10 +709,8 @@
           markers.push(marker);
         }
 
-        animateCounter('licenses-count', 0, licensesCount, 5000);
-        animateCounter('customers-count', 0, customersCount, 5000);
-        animateCounter('countries-count', 0, countries.length, 5000);
-
+        spyIfCustomersMapIsVisible();
+        window.addEventListener('scroll', spyIfCustomersMapIsVisible);
       })
         .fail(function () {
           $('#customers-map-container').hide();
