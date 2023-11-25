@@ -41,8 +41,14 @@ class ClientSession extends Unclonable
   public static function init()
   {
     static $init = 0;
+
     if (!$init) {
+
       $init = 1;
+
+      \ini_set('session.cookie_httponly', 1);
+      \ini_set('session.cookie_samesite', 'Strict');
+
       \session_start();
     }
   }
