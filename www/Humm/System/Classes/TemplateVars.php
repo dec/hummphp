@@ -39,7 +39,7 @@ class TemplateVars extends Unclonable
     $template->lowerViewName = \strtolower($template->viewName);
 
     $template->requestUri = UrlPaths::current();
-    $template->siteLanguage = Languages::getCurrentLanguage();
+    $template->siteLanguage = \HUMM_LANGUAGE;
     $template->siteLanguages = Languages::getLanguages();
     $template->siteLanguageDir = Languages::getLanguageDirection();
 
