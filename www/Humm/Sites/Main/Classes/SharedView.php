@@ -26,7 +26,15 @@ class SharedView extends HummView
   public function __construct(HtmlTemplate $template)
   {
     parent::__construct($template);
-    
+    $this->prepareUserSession();
+
     $this->template->copyrightYear = \date('Y');
+  }
+
+  private function prepareUserSession ()
+  {
+    \ini_set('session.cookie_httponly', 1);
+    \ini_set('session.cookie_samesite', 'Strict');
+    \session_start();
   }
 }

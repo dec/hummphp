@@ -33,27 +33,6 @@ class ClientSession extends Unclonable
     HUMM_LANGUAGE = 'Humm.Language';
 
   /**
-   * Initialize the PHP user session.
-   *
-   * @static
-   * @staticvar int $init Prevent twice execution.
-   */
-  public static function init()
-  {
-    static $init = 0;
-
-    if (!$init) {
-
-      $init = 1;
-
-      \ini_set('session.cookie_httponly', 1);
-      \ini_set('session.cookie_samesite', 'Strict');
-
-      \session_start();
-    }
-  }
-
-  /**
    * Set the value of an user session variable.
    *
    * @static

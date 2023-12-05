@@ -44,7 +44,6 @@ class BootStrap extends Unclonable
       UserSites::init();
       HummVersion::init();
       UrlArguments::init();
-      ClientSession::init();
       Configuration::init();
       // After Configuration
       Languages::init();
