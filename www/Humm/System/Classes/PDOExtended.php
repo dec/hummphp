@@ -264,7 +264,7 @@ class PDOExtended extends \PDO
       $params
     );
 
-    return $result != null;
+    return $result !== null;
   }
 
   /**
@@ -417,7 +417,7 @@ class PDOExtended extends \PDO
    */
   public function setFetchMode($fetchMode)
   {
-    if ($this->fetchMode != $fetchMode) {
+    if ($this->fetchMode !== $fetchMode) {
       $this->fetchMode = $fetchMode;
     }
   }
@@ -439,7 +439,7 @@ class PDOExtended extends \PDO
    */
   public function setFetchClass($class)
   {
-    if ($this->fetchClass != $class) {
+    if ($this->fetchClass !== $class) {
       $this->fetchClass = $class;
       $this->fetchMode = parent::FETCH_CLASS;
     }
@@ -540,7 +540,7 @@ class PDOExtended extends \PDO
         $this->fetchClass = $class;
         $this->fetchMode = parent::FETCH_CLASS;
       }
-      if ($this->fetchMode == parent::FETCH_CLASS) {
+      if ($this->fetchMode === parent::FETCH_CLASS) {
         $this->statement->setFetchMode(parent::FETCH_CLASS, $this->fetchClass);
       } else {
         $this->statement->setFetchMode($this->fetchMode);

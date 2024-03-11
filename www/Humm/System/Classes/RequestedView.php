@@ -205,7 +205,7 @@ class RequestedView extends Unclonable
    */
   private static function getMainViewsDirs()
   {
-    if (self::$viewsDirs == null) {
+    if (self::$viewsDirs === null) {
       // Order matter here:
       // 1º Shared sites
       // 2º Site specific

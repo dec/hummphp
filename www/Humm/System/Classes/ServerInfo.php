@@ -88,10 +88,10 @@ class ServerInfo extends Unclonable
    */
   public static function url()
   {
-    if (self::$url == null) {
+    if (self::$url === null) {
       $protocol = 'http';
-      if ((UserInput::server('HTTPS') != null)
-       && (UserInput::server('HTTPS') != 'off')) {
+      if ((UserInput::server('HTTPS') !== null)
+       && (UserInput::server('HTTPS') !== 'off')) {
          $protocol .= 's';
       }
       self::$url = \sprintf

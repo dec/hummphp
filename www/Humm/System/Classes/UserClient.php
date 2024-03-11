@@ -77,13 +77,13 @@ class UserClient extends Unclonable
   {
     if (self::$ipAddress === null) {
       self::$ipAddress = StrUtils::EMPTY_STRING;
-      if (UserInput::server('REMOTE_ADDR') != null) {
+      if (UserInput::server('REMOTE_ADDR') !== null) {
         self::$ipAddress = UserInput::server('REMOTE_ADDR');
-      } else if (UserInput::server('HTTP_CLIENT_IP') != null) {
+      } else if (UserInput::server('HTTP_CLIENT_IP') !== null) {
         self::$ipAddress = UserInput::server('HTTP_CLIENT_IP');
-      } else if (UserInput::server('HTTP_X_FORWARDED_FOR') != null) {
+      } else if (UserInput::server('HTTP_X_FORWARDED_FOR') !== null) {
         self::$ipAddress = UserInput::server('HTTP_X_FORWARDED_FOR');
-      } else if (UserInput::server('HTTP_VIA') != null) {
+      } else if (UserInput::server('HTTP_VIA') !== null) {
         self::$ipAddress = UserInput::server('HTTP_VIA');
       }
     }

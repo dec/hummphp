@@ -246,7 +246,7 @@ class Languages extends Unclonable
    $count, $textDomain = Languages::DEFAULT_DOMAIN
   )
   {
-    $result = $count == 1 ? $singular : $plural;
+    $result = (int)$count === 1 ? $singular : $plural;
 
     if (isset(self::$messages[$textDomain][$singular])) {
       $fn = self::$pluralFunc;
