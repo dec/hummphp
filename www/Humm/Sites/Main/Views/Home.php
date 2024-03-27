@@ -11,5 +11,5 @@
  </div>
 
 <?php $this->displayView('PreFooter') ?>
- <script type="text/javascript" src="<?= $viewsScriptsUrl ?>Home.js"></script>
+ <script src="<?= $viewsScriptsUrl ?>Home.js"></script>
 <?php $this->displayView('PosFooter') ?>

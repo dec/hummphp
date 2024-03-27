@@ -7,4 +7,4 @@
 
 </div> <!-- /container -->
 
-<script type="text/javascript" src="<?= $viewsScriptsUrl ?>Thirdparty.min.js"></script>
+<script src="<?= $viewsScriptsUrl ?>Thirdparty.min.js"></script>
