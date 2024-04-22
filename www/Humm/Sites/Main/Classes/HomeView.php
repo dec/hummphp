@@ -5,7 +5,7 @@
  *
  * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
- * @license https://www.gnu.org/licenses/gpl.html
+ * @license https://github.com/dec/hummphp/blob/master/LICENSE
  * @copyright (C) Humm PHP - DecSoft Utils
  */
 
@@ -26,7 +26,7 @@ class HomeView extends HummView
   public function __construct(HtmlTemplate $template)
   {
     parent::__construct($template);
-    
+
     $this->template->headerTitle = 'Welcome!';
   }
 }

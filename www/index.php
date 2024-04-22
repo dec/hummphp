@@ -8,7 +8,7 @@
  *
  * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
- * @license https://www.gnu.org/licenses/gpl.html
+ * @license https://github.com/dec/hummphp/blob/master/LICENSE
  * @copyright (C) Humm PHP - DecSoft Utils
  */
 
@@ -18,11 +18,11 @@
 \spl_autoload_register(function($class)
 {
   $class_file_path = __DIR__.\DIRECTORY_SEPARATOR.
-   \str_replace('\\', \DIRECTORY_SEPARATOR, $class).'.php';  
-    
+   \str_replace('\\', \DIRECTORY_SEPARATOR, $class).'.php';
+
   if (file_exists($class_file_path)) {
-    require_once $class_file_path;      
-  }  
+    require_once $class_file_path;
+  }
 });
 
  /**

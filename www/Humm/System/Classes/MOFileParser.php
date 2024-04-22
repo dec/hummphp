@@ -8,7 +8,7 @@
  *
  * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
- * @license https://www.gnu.org/licenses/gpl.html
+ * @license https://github.com/dec/hummphp/blob/master/LICENSE
  * @copyright (C) Humm PHP - DecSoft Utils
  */
 
@@ -39,7 +39,7 @@ class MOFileParser extends Unclonable
    $filePath, $textDomain, &$messages, &$pluralFunc)
   {
     $result = false;
-    $fileData = self::getFileData($filePath);    
+    $fileData = self::getFileData($filePath);
     $fileHeader = self::getFileHeader($filePath, $fileData);
     if (($fileData !== null) && ($fileHeader !== null)) {
       self::fillMessages($fileData, $fileHeader, $textDomain, $messages);
@@ -198,17 +198,17 @@ class MOFileParser extends Unclonable
   private static function getPluralFunc($textFileHeader)
   {
     $matches = array();
-    
+
     $result = self::defaultPluralFunc();
-    
+
     if (self::matchPluralFunc($textFileHeader, $matches)) {
       $body = self::getPluralFuncBody($matches);
-      
+
       $result = function ($n) use ($body) {
         return eval($body);
       };
     }
-    
+
     return $result;
   }
 
@@ -223,7 +223,7 @@ class MOFileParser extends Unclonable
     return function ($n) {
       $nplurals = 2;
       $plural = ((int)$n === 1 ? 0 : 1);
-      return ($plural >= $nplurals ? $nplurals - 1 : $plural);     
+      return ($plural >= $nplurals ? $nplurals - 1 : $plural);
     };
   }
 
@@ -259,14 +259,14 @@ class MOFileParser extends Unclonable
    */
   private static function fixPluralFuncBody($body)
   {
-    $p = 0; 
-    $res = ''; 
+    $p = 0;
+    $res = '';
     $body .= ';';
 
     for ($i = 0; $i < \strlen($body); $i++) {
       switch ($body[$i]) {
         case '?':
-          $res.= ' ? ('; 
+          $res.= ' ? (';
           $p++;
           break;
         case ':':
@@ -281,7 +281,7 @@ class MOFileParser extends Unclonable
           break;
       }
     }
- 
+
     return $res;
   }
 }
