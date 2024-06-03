@@ -8,7 +8,7 @@
  *
  * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
- * @license https://github.com/dec/hummphp/blob/master/LICENSE
+ * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C) Humm PHP - DecSoft Utils
  */
 
@@ -620,8 +620,14 @@ class Database extends Unclonable
    */
   private static function tryToConnect()
   {
-    if (self::connect(\HUMM_DATABASE_DSN,
-     \HUMM_DATABASE_USER, \HUMM_DATABASE_PASS)) {
+    if (self::connect(\HUMM_DATABASE_DSN, \HUMM_DATABASE_USER, \HUMM_DATABASE_PASS)) {
+
+       $charset_name = \trim(\HUMM_DATABASE_CHARSET_NAME);
+
+       if ($charset_name !== '') {
+         self::exec("SET NAMES {$charset_name}");
+       }
+
        HummPlugins::execSimpleAction(PluginActions::DATABASE_CONNECTED);
     }
   }

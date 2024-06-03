@@ -13,7 +13,7 @@
  *
  * @author DecSoft Utils <info@decsoftutils.com>
  * @link https://www.decsoftutils.com/
- * @license https://github.com/dec/hummphp/blob/master/LICENSE
+ * @license https://www.gnu.org/licenses/gpl.html
  * @copyright (C) Humm PHP - DecSoft Utils
  */
 
@@ -58,3 +58,11 @@ if (!\defined('\HUMM_DATABASE_USER')) {
 if (!\defined('\HUMM_DATABASE_PASS')) {
   \define('HUMM_DATABASE_PASS', '');
 }
+
+/**
+ * Define the default Humm PHP database charset name.
+ */
+if (!\defined('\HUMM_DATABASE_CHARSET_NAME')) {
+  \define('HUMM_DATABASE_CHARSET_NAME', '');
+}
+
