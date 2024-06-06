@@ -622,12 +622,6 @@ class Database extends Unclonable
   {
     if (self::connect(\HUMM_DATABASE_DSN, \HUMM_DATABASE_USER, \HUMM_DATABASE_PASS)) {
 
-       $charset_name = \trim(\HUMM_DATABASE_CHARSET_NAME);
-
-       if ($charset_name !== '') {
-         self::exec("SET NAMES {$charset_name}");
-       }
-
        HummPlugins::execSimpleAction(PluginActions::DATABASE_CONNECTED);
     }
   }

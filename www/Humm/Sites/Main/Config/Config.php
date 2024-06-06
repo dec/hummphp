@@ -53,13 +53,3 @@
  *
  */
 \define('HUMM_DATABASE_PASS', '');
-
-/**
- * Define the default Humm PHP database charset name.
- *
- * String value, empty by default
- *
- * Can be "utf8", for example.
- *
- */
-\define('HUMM_DATABASE_CHARSET_NAME', '');
