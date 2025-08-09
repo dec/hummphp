@@ -163,6 +163,9 @@
           <a href="#hummPlugins" title="Go to this section">Humm PHP plugins</a>
           <ol>
             <li>
+              <a href="#pluginPriority" title="Go to this section">Plugin priority</a>
+            </li>
+            <li>
               <a href="#pluginFilters" title="Go to this section">Plugin filters</a>
               <ul>
                 <li><small><a href="#DATABASE_SQL" title="Go to this section">DATABASE_SQL</a></small></li>
@@ -191,7 +194,7 @@
             What do you need
           </h3>
           <p>
-            In order to use <strong>Humm PHP</strong> for your sites you need a web server which run PHP 5.4 or later. You no need to perform any installation process and all the configuration options are optionals, so your copy of <strong>Humm PHP</strong> must works like a charm just when copy the distribution files into your web server. However probably you want to take a look at the optional configuration in order to customize your <strong>Humm PHP</strong> copy.
+            In order to use <strong>Humm PHP</strong> for your sites you need a web server which run PHP 8.0.0 or later. You no need to perform any installation process and all the configuration options are optionals, so your copy of <strong>Humm PHP</strong> must works like a charm just when copy the distribution files into your web server. However probably you want to take a look at the optional configuration in order to customize your <strong>Humm PHP</strong> copy.
           </p>
           <div class="toPageTop">
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
@@ -310,27 +313,27 @@ http://www.yoursite.com/?search
           <p>
             The first and second URLs correspond with the "Home" view. The second correspond with a "Contact" view and the third correspond with a "Search" view. The system is responsible to require the appropriate view per user requests and your responsibility is to provided the appropriate views files and optionally views associated PHP classes.
           </p>
-		  
+
 		  <p>
 		   If you use this kind of URLs, that is, if you do not use the "rewrite" way (see below) then you must take care if you want to add more arguments into the URls. The way to add more arguments into the above URLs can be done like below:
 		  </p>
-		  
+
           <pre>
 
 http://www.yoursite.com/?home/&myvariable=myvalue&another=value
 
-   </pre>		  
-   
+   </pre>
+
           <p>
 		   Doing that <strong>Humm PHP</strong> can continue recognizing the right view (home in this case) but also you have access to the "myvariable" and the "another" variable values.
 		  </p>
-		  
+
           <div class="toPageTop">
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
           </div>
         </div>
         <!-- /documentSection -->
-        
+
         <div id="viewsUrlsRewrite" class="documentsSection">
           <h3 class="softwareIcon">
             Views URLs (rewrite)
@@ -364,7 +367,7 @@ http://www.yoursite.com/search
           </div>
         </div>
         <!-- /documentSection -->
-        
+
         <div id="deepViewsUrls" class="documentsSection">
           <h3 class="softwareIcon">
             Deep views URLs
@@ -381,7 +384,7 @@ http://www.yoursite.com/?admin/user/profile
            ... wanted for the "admin" view. All of the above URLs cause to load the "admin" view. Ok. Even when we can deal with a sole view and then play with the URLs arguments, etc., this can be enough. But now Humm PHP support also "deep" views, which means than the above URLs certainly fallback in an "admin" view, but, also look for the possible "AdminUser" and "AdminUserProfile" views.
           </p>
           <p>
-           If few words, everything works like before (in fact they are backward compatible), but now we can prepare an "AdminUser.php" view, and an optional "AdminUserView.php" class, in order to be ready to used for an URL like the below one: 
+           If few words, everything works like before (in fact they are backward compatible), but now we can prepare an "AdminUser.php" view, and an optional "AdminUserView.php" class, in order to be ready to used for an URL like the below one:
           </p>
           <pre>
 http://www.yoursite.com/?admin/user
@@ -391,9 +394,9 @@ http://www.yoursite.com/?admin/user
           </p>
           <pre>
 http://www.yoursite.com/admin/user
-   </pre>          
+   </pre>
           <p>
-           With the "deep" views we not only can be ready to prepare more views for our sites, but, also to be more effective when working on that. Before this feature, we can certainly have an "admin" view and then dealing with the URLs arguments, etc. This can be enough in the optional "Admin" view's class, but, what happend with the views' templates?   
+           With the "deep" views we not only can be ready to prepare more views for our sites, but, also to be more effective when working on that. Before this feature, we can certainly have an "admin" view and then dealing with the URLs arguments, etc. This can be enough in the optional "Admin" view's class, but, what happend with the views' templates?
           </p>
           <p>
            Before the "deep" views feature we only can use one view's template, and, even with the usage of views' helpers files too, there is no doubt that the "deep" views offer us a better approach, because, following the above URL sample, we can have one "Admin" view's template and optional class, and one "AdminUser" view's template and optional class too, separating their logic and contents in a better way.
@@ -402,9 +405,9 @@ http://www.yoursite.com/admin/user
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
           </div>
         </div>
-        <!-- /documentSection -->        
-        
-        
+        <!-- /documentSection -->
+
+
         <div id="viewsFiles" class="documentsSection">
           <h3 class="softwareIcon">
             Views files
@@ -964,6 +967,33 @@ $this->displayView('MyFooter');
           <div class="toPageTop">
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
           </div>
+        </div>
+        <!-- /documentSection -->
+        <div id="pluginPriority" class="documentsSection">
+          <h3 class="softwareIcon">
+            Plugin priority
+          </h3>
+          <p>
+           There are various plugin priorities defined at the system class "PluginPriorities". Basically a higher priority place the plugin firstly in the list of plugins, so, the filters and actions will be executed prior to other plugins on the list.
+          </p>
+          <p>
+           By default a plugin have the "PluginPriorities::LOWER" priority. If you want to change this, you can implement a "priority" method in your plugin class and return another priority for the plugin, for example:
+          </p>
+          <pre>
+namespace Humm\Plugins\Sample;
+
+use
+  \Humm\System\Classes\HummPlugin,
+  \Humm\System\Classes\PluginPriorities;
+
+class Sample extends HummPlugin
+{
+  public function priority()
+  {
+    return PluginPriorities::HIGHER;
+  }
+}
+   </pre>
         </div>
         <!-- /documentSection -->
         <div id="pluginFilters" class="documentsSection">
