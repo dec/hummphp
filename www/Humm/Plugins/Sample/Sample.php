@@ -16,10 +16,16 @@ use
   \Humm\System\Classes\PluginFilters,
   \Humm\System\Classes\PluginActions,
   \Humm\System\Classes\FilterArguments,
-  \Humm\System\Classes\ActionArguments;
+  \Humm\System\Classes\ActionArguments,
+  \Humm\System\Classes\PluginPriorities;
 
 class Sample extends HummPlugin
 {
+  public function priority()
+  {
+    return PluginPriorities::LOWER;
+  }
+
   public function execAction(ActionArguments $arguments)
   {
     switch ($arguments->action) {

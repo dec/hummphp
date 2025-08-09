@@ -42,7 +42,6 @@ abstract class HummPlugin extends BaseClass
    * This method is intented to be overwriten in child classes
    * but we implement here to provide a default priority.
    *
-   * @todo Plugins priority are not yet implemented
    * @return int The plugin priority.
    */
   public function priority()
