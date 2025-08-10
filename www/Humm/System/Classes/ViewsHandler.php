@@ -109,15 +109,15 @@ class ViewsHandler extends Unclonable
     }
 
     // Setup the current (requested) site class object instance.
-    $viewName = RequestedView::getViewName($template);
-    $template->siteView = self::getViewObject($viewName, $template);
+    $view_name = RequestedView::getViewName($template);
+    $template->siteView = self::getViewObject($view_name, $template);
 
     // Allow plugins to add stuff into the HTML template.
     HummPlugins::applySimpleFilter(
      PluginFilters::VIEW_TEMPLATE, $template);
 
     // Finally display the requested site view.
-    $template->displayView($viewName);
+    $template->displayView($view_name);
   }
 
   /**
@@ -139,35 +139,63 @@ class ViewsHandler extends Unclonable
    * system "HummView" class in order to be considered valid.
    *
    * @static
-   * @param string $viewName View name to retrieve their associate class.
+   * @param string $view_name View name to retrieve their associate class.
    * @param HtmlTemplate $template Reference to an HTML template object.
    * @return HummView
    */
   private static function getViewObject(
-   $viewName, HtmlTemplate $template)
+   $view_name, HtmlTemplate $template)
   {
-    $viewObject = null;
 
-    $sharedClass = self::SITES_SHARED_CLASS_NAMESPACE.
-                    $viewName.self::VIEW_CLASS_SUFFIX;
+    $view_object = null;
 
-    $siteClass = UserSites::viewClassName($viewName);
+    $shared_class = self::SITES_SHARED_CLASS_NAMESPACE . $view_name . self::VIEW_CLASS_SUFFIX;
 
-    $systemClass = self::SYSTEM_CLASS_NAMESPACE.
-                    $viewName.self::VIEW_CLASS_SUFFIX;
+    $site_class = UserSites::viewClassName($view_name);
 
-    // Order matter here
-    if (self::isValidViewClass($sharedClass)) {
-      $viewObject = new $sharedClass($template);
+    $system_class = self::SYSTEM_CLASS_NAMESPACE . $view_name . self::VIEW_CLASS_SUFFIX;
 
-    } else if (self::isValidViewClass($siteClass)) {
-      $viewObject = new $siteClass($template);
+    // Order matter here:
 
-    } else if (self::isValidViewClass($systemClass)) {
-      $viewObject = new $systemClass($template);
+    // 1º A possible shared view
+    if (self::isValidViewClass($shared_class)) {
+
+      $view_object = new $shared_class($template);
+
+    // 2º A possible site view
+    } else if (self::isValidViewClass($site_class)) {
+
+      $view_object = new $site_class($template);
+
+    // 3º A possible system view
+    } else if (self::isValidViewClass($system_class)) {
+
+      $view_object = new $system_class($template);
+
+    // 4º A possible plugin view
+    } else {
+
+      foreach (HummPlugins::getPlugins() as $plugin) {
+
+        $plugin_class = $plugin->classesNamespace() . $view_name . self::VIEW_CLASS_SUFFIX;
+
+        if (self::isValidViewClass($plugin_class)) {
+
+          $template->pluginViewsUrl = $plugin->viewsUrl();
+          $template->pluginViewsFilesUrl = $plugin->viewsFilesUrl();
+          $template->pluginViewsImagesUrl = $plugin->viewsImagesUrl();
+          $template->pluginViewsStylesUrl = $plugin->viewsStylesUrl();
+          $template->pluginViewsScriptsUrl = $plugin->viewsScriptsUrl();
+
+          $view_object = new $plugin_class($template);
+        }
+
+        // Do not continue looking for other possible plugins views (?)
+        break;
+      }
     }
 
-    return $viewObject;
+    return $view_object;
   }
 
   /**

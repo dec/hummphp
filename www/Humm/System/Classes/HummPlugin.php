@@ -284,4 +284,17 @@ abstract class HummPlugin extends BaseClass
            DirNames::SCRIPTS.
            \DIRECTORY_SEPARATOR;
   }
+
+  /**
+   * Retrieve the plugin classes namespace.
+   *
+   * @return string The plugin classes namespace.
+   */
+  public function classesNamespace () : string {
+
+    $rc = new \ReflectionClass($this);
+
+    return $rc->getNamespaceName() . StrUtils::PHP_NS_SEPARATOR .
+     'Classes' . StrUtils::PHP_NS_SEPARATOR;
+  }
 }

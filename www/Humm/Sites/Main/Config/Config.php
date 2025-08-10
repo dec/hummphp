@@ -18,7 +18,7 @@
  * String value, empty by default.
  *
  */
-\define('HUMM_ACTIVE_PLUGINS', '');
+\define('HUMM_ACTIVE_PLUGINS', 'Sample');
 
 /**
  * Determine if Humm PHP shown errors.

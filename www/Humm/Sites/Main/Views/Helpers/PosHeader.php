@@ -14,6 +14,9 @@
       <li class="nav-item">
        <a class="nav-link" href="<?= $siteUrl ?>?about">About</a>
       </li>
+      <li class="nav-item">
+       <a class="nav-link" href="<?= $siteUrl ?>?sample-plugin">Sample plugin</a>
+      </li>
      </ul>
     </nav>
     <h3 class="text-muted"><a href="https://www.decsoftutils.com" title="www.decsoftutils.com">Humm PHP</a></h3>

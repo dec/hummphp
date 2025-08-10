@@ -44,11 +44,6 @@ class HummPlugins extends Unclonable
   const APPLY_FILTER_METHOD = 'applyFilter';
 
   /**
-   * Define the plugins get priority method.
-   */
-  const GET_PRIORITY_METHOD = 'getPriority';
-
-  /**
    * Define the active plugins separator.
    */
   const ACTIVE_PLUGINS_SEPARATOR = ',';

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="viewport"
-      content="width=device-width, initial-scale=1" />
+      content="width=device-width, initial-scale=1">
     <title>HummPHP documents</title>
     <style>
       @media all
@@ -601,7 +601,7 @@ use
 
 class ContactView extends HummView
 {
-  public function __construct(HtmlTemplate $template)
+  public function __construct (HtmlTemplate $template)
   {
     parent::__construct($template);
     $template->myNewVariable = 'Variable content';
@@ -964,6 +964,54 @@ $this->displayView('MyPluginView');
 
 $this->displayView('MyFooter');
    </pre>
+          <p>
+            But that is not all! The <strong>Humm PHP</strong> plugins can also prepare "main views", not loaded by the "displayView()" of the HtmlTemplate object, but, from the site's URLs.
+          </p>
+          <p>
+           In other words, a plugin can respond to an URL like this: "http://www.yoursite.com/?sample-plugin"
+          </p>
+          <p>
+            To do this you must follow the same conventions than the regular site views. For the above URL, you must have a file named: "Sampleplugin.php" in the "Views" folder of the plugin, and, optionally (but recommended) PHP class named "SamplePluginView" in a file named "SamplepluginView.php" in the "Classes" folder of the plugin.
+          </p>
+          <p>
+            The class must derive (like any other view) from the "HummView" class. Below you have an example, which, is the one that you can also see in the "Sample" plugin in Humm PHP. In fact the sample site link to that plugin view, so you can see it in action too.
+          </p>
+          <pre>
+namespace Humm\Plugins\Sample\Classes;
+
+use
+  \Humm\System\Classes\HummView,
+  \Humm\System\Classes\HtmlTemplate;
+
+class SamplePluginView extends HummView {
+
+  public function __construct (HtmlTemplate $template) {
+
+    parent::__construct($template);
+
+    $this->template->headerTitle = 'Sample plugin!';
+  }
+}
+          </pre>
+          <p>
+            Note the importance of the namespace in the above class: must be like that, for the case of the "Sample" plugin. The namespace is important since it's used to automatically instantiate the class when needed.
+          </p>
+          <p>
+           In addition to the default template variables, the plugin template have their own specific ones:
+          </p>
+          <dl>
+            <dt>$pluginViewsUrl</dt>
+            <dd>This variable store the plugin views directory URL.</dd>
+            <dt>$pluginViewsFilesUrl</dt>
+            <dd>This variable store the plugin views files directory URL.</dd>
+            <dt>$pluginViewsImagesUrl</dt>
+            <dd>This variable store the plugin views images directory URL.</dd>
+            <dt>$pluginViewsStylesUrl</dt>
+            <dd>This variable store the plugin views styles directory URL.</dd>
+            <dt>$pluginViewsScriptsUrl</dt>
+            <dd>This variable store the plugin views scripts directory URL.</dd>
+          </dl>
+
           <div class="toPageTop">
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
           </div>
@@ -986,10 +1034,10 @@ use
   \Humm\System\Classes\HummPlugin,
   \Humm\System\Classes\PluginPriorities;
 
-class Sample extends HummPlugin
-{
-  public function priority()
-  {
+class Sample extends HummPlugin {
+
+  public function priority () {
+
     return PluginPriorities::HIGHER;
   }
 }
@@ -1010,10 +1058,10 @@ use
   \Humm\System\Classes\HummPlugin,
   \Humm\System\Classes\FilterArguments;
 
-class Sample extends HummPlugin
-{
-  public function applyFilter(FilterArguments $arguments)
-  {
+class Sample extends HummPlugin {
+
+  public function applyFilter (FilterArguments $arguments) {
+
     // Filtered or not
     return $arguments->content;
   }
@@ -1032,10 +1080,10 @@ use
   \Humm\System\Classes\HummPlugin,
   \Humm\System\Classes\FilterArguments;
 
-class Sample extends HummPlugin
-{
-  public function applyFilter(FilterArguments $arguments)
-  {
+class Sample extends HummPlugin {
+
+  public function applyFilter (FilterArguments $arguments) {
+
     switch ($arguments->filter) {
       case PluginFilters::BUFFER_OUTPUT:
         $arguments->content = \strtoupper($arguments->content);
@@ -1081,8 +1129,8 @@ class Sample extends HummPlugin
             This filter "content" is an HtmlTemplate object which the plugin can use in order to modify or add new variables in order to put availables into the site views. The plugin is responsible to return in this filter the same content, that is, the HtmlTemplate object, filtered or not, in order to do not broken the chain. This is an implementation sample of this filter:
           </p>
           <pre>
-public function applyFilter(FilterArguments $arguments)
-{
+public function applyFilter (FilterArguments $arguments) {
+
   switch ($arguments->filter) {
     case PluginFilters::VIEW_TEMPLATE:
       $arguments->content->myNewVariable = 'Variable content';
@@ -1131,10 +1179,9 @@ use
   \Humm\System\Classes\HummPlugin,
   \Humm\System\Classes\ActionArguments;
 
-class Sample extends HummPlugin
-{
-  public function execAction(ActionArguments $arguments)
-  {
+class Sample extends HummPlugin {
+
+  public function execAction (ActionArguments $arguments) {
 
   }
 }
@@ -1149,10 +1196,10 @@ use
   \Humm\System\Classes\HummPlugin,
   \Humm\System\Classes\ActionArguments;
 
-class Sample extends HummPlugin
-{
-  public function execAction(ActionArguments $arguments)
-  {
+class Sample extends HummPlugin {
+
+  public function execAction (ActionArguments $arguments) {
+
     switch ($arguments->action) {
       case PluginActions::PLUGINS_LOADED:
         // The plugins are loaded. Do something useful.
