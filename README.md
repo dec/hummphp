@@ -8,6 +8,12 @@ you can expend uploading the Humm PHP files into your web server). Humm PHP
 run out of the box and do not need any configuration nor installation process.
 
 
+Important note!!
+----------------
+
+If you use PHP 8+ (which is highly recommended) consider this project obsolete and use the Humm PHP project for PHP 8+ that you can found here: https://github.com/dec/hummphp-8
+
+
 Humm PHP main features
 ----------------------
 
