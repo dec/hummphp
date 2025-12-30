@@ -31,7 +31,7 @@ class HummPlugins extends Unclonable
   /**
    * Define the plugins priority method.
    */
-  private const PRIORITY_METHOD = 'priority';
+  const PRIORITY_METHOD = 'priority';
 
   /**
    * Define the plugins execute action method.
