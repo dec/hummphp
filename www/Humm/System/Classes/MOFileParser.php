@@ -147,13 +147,13 @@ class MOFileParser extends Unclonable
       $msgInfo = \unpack($lo, \substr($fileData,
        $fileHeader['msgblock'] + $msgIndex * 8, 8));
 
-      $msgids = \explode('\0', \substr($fileData,
+      $msgids = \explode("\0", \substr($fileData,
        $msgInfo['offset'], $msgInfo['length']));
 
       $transInfo = \unpack($lo, \substr($fileData,
        $fileHeader['transblock'] + $msgIndex * 8, 8));
 
-      $transIDs = \explode('\0', \substr($fileData,
+      $transIDs = \explode("\0", \substr($fileData,
        $transInfo['offset'], $transInfo['length']));
 
       $messages[$textDomain][$msgids[0]] = array($msgids, $transIDs);
