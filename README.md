@@ -65,3 +65,8 @@ Download or write your own plugins to enhance Humm PHP.
 ### And many, many more... ###
 
 Discover how Humm PHP can be useful to you! Download now!
+
+### Donate ###
+
+All donations to help support this project are very welcome: https://www.paypal.me/davidesperalta
+
