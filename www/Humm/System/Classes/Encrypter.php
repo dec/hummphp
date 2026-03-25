@@ -27,9 +27,6 @@ class Encrypter extends Unclonable
   /**
    * Encrypt the specified text string.
    *
-   * This method encrypt the specified text string using
-   * the also provided "secret key" and "secret IV".
-   *
    * @static
    * @param string $text String to be encrypted
    * @param string $secretKey The secret key to be used
@@ -52,9 +49,6 @@ class Encrypter extends Unclonable
 
   /**
    * Decrypt the specified previously encrypted string.
-   *
-   * This method decrypt the specified previously encrypted text
-   * string using the also provided "secret key" and "secret IV".
    *
    * @static
    * @param string $text Base64 codified string to be decrypted
