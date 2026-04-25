@@ -230,6 +230,30 @@ class UserSites extends Unclonable
    *
    * The site directory are "Abc10".
    *
+   * For an URL like this:
+   *
+   * http://www.my-site.com/
+   *
+   * The site directory are "Mysite".
+   *
+   * For an URL like this:
+   *
+   * http://www.this-is.my-site.com/
+   *
+   * The site directory are "ThisisMysite".
+   *
+   * For an URL like this:
+   *
+   * http://www.my_site.com/
+   *
+   * The site directory are "Mysite".
+   *
+   * For an URL like this:
+   *
+   * http://www.this_is.my_site.com/
+   *
+   * The site directory are "ThisisMysite".
+   *
    * @static
    * @return string The found site directory name.
    */
@@ -263,6 +287,7 @@ class UserSites extends Unclonable
         $siteDir .= \ucfirst($dPart);
       }
     }
+    $siteDir = \str_replace(array('-', '_'), '', $siteDir);
     return $siteDir;
   }
 

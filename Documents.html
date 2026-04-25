@@ -842,6 +842,23 @@ http://www.abc10.com/
           <p>
             Just provide the appropriate "Sites" subdirectory corresponding with the appropriate domain or subdomain and that's all, <strong>Humm PHP</strong> do the rest. Just remember the probably most way to create new sites directories: just replicate the "Main" site directory from a clean <strong>Humm PHP</strong>, rename the directory name acordingly with the new domain or subdomain and begin to modify the site contents to suit your needs.
           </p>
+          <p>
+           <strong>Important:</strong> Note that your domain or subdomain can include the "-" character. It's no problem by that, but, since PHP identifiers (like namespaces) cannot contains the "-" character, this character will be removed from the site directory name.
+          </p>
+          <p>
+           So, for example,  supposing domains like the below ones:
+          </p>
+          <pre>
+http://www.peter-parker.com/
+
+http://www.i-am.peter-parker.com/
+   </pre>
+          <p>
+           The first site directory must be named "Peterparker" and the second site directory must be named "IamPeterparker". Just remember that the "-" character is removed from the site directory name, so you can use it in your domains but not in your site directories.
+          </p>
+          <p>
+           Note also that, for clarity purposes, the "_" character is also replaced like the "-" character.
+          </p>
           <div class="toPageTop">
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>
           </div>
