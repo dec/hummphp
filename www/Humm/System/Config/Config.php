@@ -32,7 +32,14 @@ if (!\defined('\HUMM_ACTIVE_PLUGINS')) {
 }
 
 /**
- * Define the default Humm PHP error level.
+ * Define if Humm PHP must handle PHP errors.
+ */
+if (!\defined('\HUMM_HANDLE_ERRORS')) {
+  \define('HUMM_HANDLE_ERRORS', true);
+}
+
+/**
+ * Define if Humm PHP must show PHP errors.
  */
 if (!\defined('\HUMM_SHOW_ERRORS')) {
   \define('HUMM_SHOW_ERRORS', true);

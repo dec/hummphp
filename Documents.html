@@ -239,10 +239,7 @@
             Errors report
           </h3>
           <p>
-            Open your site "Config.php" and locate the "HUMM_SHOW_ERRORS" constant. You can define this constant with a boolean value, "True" or "False", in order to establish the <strong>Humm PHP</strong> errors report level. This configuration determine if <strong>Humm PHP</strong> print out possible errors information or must to hide it for security purposes.
-          </p>
-          <p>
-            The default value for this configuration option is "True", which means <strong>Humm PHP</strong> print out information about any possible error. Even when you change this configuration option to "False" <strong>Humm PHP</strong> print out the errors information, BUT ONLY IF runs in a local server, AND NEVER in a remote web server. The recommended value for this constant is "True" while debug the application, and "False" when this are placed in the production server.
+            Open your site "Config.php" and locate the "HUMM_HANDLE_ERRORS" and the "HUMM_SHOW_ERRORS" constants. The first one is used to tell <strong>Humm PHP</strong> if it must handle PHP errors or not (sometimes may you want to handle it by yourself). The second one is used to tell <strong>Humm PHP</strong> if it must show PHP errors or not. Both constants are boolean values and by default they are set to "true". You can set them to "false" in order to disable the errors handling and/or showing.
           </p>
           <div class="toPageTop">
             <a href="#documentsIndex" title="Click to back to the documents index">Back to the index</a>

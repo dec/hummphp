@@ -21,7 +21,15 @@
 \define('HUMM_ACTIVE_PLUGINS', 'Sample');
 
 /**
- * Determine if Humm PHP shown errors.
+ * Determine if Humm PHP must handle PHP errors.
+ *
+ * Boolean value, "true" by default.
+ *
+ */
+\define('HUMM_HANDLE_ERRORS', true);
+
+/**
+ * Determine if Humm PHP must show PHP errors.
  *
  * Boolean value, "true" by default.
  *
