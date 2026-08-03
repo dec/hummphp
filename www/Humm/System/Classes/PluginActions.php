@@ -69,17 +69,10 @@ class PluginActions extends Unclonable
   /**
    * Define the connected database plugin action ID.
    *
-   * Executed from Requeriments::pluginsCheck() this action
-   * allows the plugins to check their own requriments and
-   * trigger an error if the requeriments are not supplied.
+   * Executed when the configured database connection is established.
    *
-   * The plugins can react to this action calling one or more
-   * times the PHP \trigger_error() function providing the
-   * appropiate check requeriments errors information:
-   *
-   * Do not print anything to the buffer output: just use the
-   * \trigger_error() action and let the system to inform the
-   * user about the plugin check requeriments errors.
+   * A plugin can use this action after the database connection is
+   * established to make some needed tasks
    *
    */
   const DATABASE_CONNECTED = 2004;
