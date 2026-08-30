@@ -63,15 +63,19 @@ class ErrorHandler extends Unclonable
   public static function init()
   {
     static $init = 0;
+
     if (!$init) {
+
       $init = 1;
+
       self::$errors = array();
-      if (!\HUMM_HANDLE_ERRORS) {
-        return;
-      }
-      \set_error_handler(array(__CLASS__, self::ERROR_HANDLER));
-      \set_exception_handler(array(__CLASS__, self::EXCEPTION_HANDLER));
+
       \register_shutdown_function(array(__CLASS__, self::SHUTDOWN_HANDLER));
+
+      if (\HUMM_HANDLE_ERRORS) {
+        \set_error_handler(array(__CLASS__, self::ERROR_HANDLER));
+        \set_exception_handler(array(__CLASS__, self::EXCEPTION_HANDLER));
+      }
     }
   }
 
