@@ -38,16 +38,19 @@ class BootStrap extends Unclonable
     static $init = 0;
     if (!$init) {
       $init = 1;
-      // The order matters here
       DirPaths::init($rootDir);
-      Configuration::init();
-      ErrorHandler::init();
+      // After DirPaths
       UserSites::init();
       HummVersion::init();
       UrlArguments::init();
+      Configuration::init();
+      // After Configuration
+      ErrorHandler::init();
       Languages::init();
+      // After Languages
       Localization::init();
       HummPlugins::init();
+      // After HummPlugins
       Requeriments::init();
       Database::init();
       ViewsHandler::init();
