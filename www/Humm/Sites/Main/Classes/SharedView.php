@@ -34,7 +34,7 @@ class SharedView extends HummView
   private function prepareUserSession ()
   {
     \ini_set('session.cookie_httponly', 1);
-    \ini_set('session.cookie_samesite', 'Strict');
+    \ini_set('session.cookie_samesite', 'Lax');
     \session_start();
   }
 }
