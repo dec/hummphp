@@ -86,7 +86,6 @@ class ErrorInfo extends BaseClass
       case E_PARSE: $result = 'E_PARSE'; break;
       case E_ERROR: $result = 'E_ERROR'; break;
       case E_NOTICE: $result = 'E_NOTICE'; break;
-      case E_STRICT: $result = 'E_STRICT'; break;
       case E_WARNING: $result = 'E_WARNING'; break;
       case E_USER_ERROR: $result = 'E_USER_ERROR'; break;
       case E_CORE_ERROR: $result = 'E_CORE_ERROR'; break;
